@@ -1,0 +1,254 @@
+[
+  {
+    "id": "botao-primario",
+    "nome": "Botão primário",
+    "caminho": "partials/componentes/botao-primario.html",
+    "regras": "Destaque a ação principal com primária e sobre-primária.",
+    "estados": "Hover altera a superfície; foco com contorno; ativo com recuo; disabled nativo impede ação."
+  },
+  {
+    "id": "botao-secundario",
+    "nome": "Botão secundário/outline",
+    "caminho": "partials/componentes/botao-secundario.html",
+    "regras": "Use contorno e texto primário sobre superfície.",
+    "estados": "Hover realça o contorno; foco externo; pressionado perceptível; disabled nativo."
+  },
+  {
+    "id": "botao-icone",
+    "nome": "Botão de ícone",
+    "caminho": "partials/componentes/botao-icone.html",
+    "regras": "Ícone SVG inline com nome acessível e alvo mínimo de 36px.",
+    "estados": "Hover, foco e ativo explícitos; desabilitado com indicação visual."
+  },
+  {
+    "id": "segmentado",
+    "nome": "Grupo segmentado",
+    "caminho": "partials/componentes/segmentado.html",
+    "regras": "Agrupe opções exclusivas; exponha aria-pressed.",
+    "estados": "Seleção persistente, navegação por Tab, foco visível e opção desabilitada."
+  },
+  {
+    "id": "campo-texto",
+    "nome": "Campo de texto",
+    "caminho": "partials/componentes/campo-texto.html",
+    "regras": "Associe rótulo, dica e tipo de entrada apropriado.",
+    "estados": "Borda no hover, foco forte, estado inválido com mensagem e disabled nativo."
+  },
+  {
+    "id": "area-texto",
+    "nome": "Área de texto",
+    "caminho": "partials/componentes/area-texto.html",
+    "regras": "Permita múltiplas linhas e redimensionamento vertical.",
+    "estados": "Foco visível, hover, inválido e disabled distinguíveis."
+  },
+  {
+    "id": "select",
+    "nome": "Lista suspensa",
+    "caminho": "partials/componentes/select.html",
+    "regras": "Seleção nativa com rótulo, sem substituir a semântica.",
+    "estados": "Foco, hover, opção selecionada e opção desabilitada."
+  },
+  {
+    "id": "checkbox",
+    "nome": "Checkbox",
+    "caminho": "partials/componentes/checkbox.html",
+    "regras": "Rótulo clicável e estado marcado sem depender apenas da cor.",
+    "estados": "Checked, hover, foco e disabled com controle nativo."
+  },
+  {
+    "id": "radio",
+    "nome": "Radio",
+    "caminho": "partials/componentes/radio.html",
+    "regras": "Opções exclusivas com mesmo nome e legenda do grupo.",
+    "estados": "Checked, foco por teclado, hover e disabled nativos."
+  },
+  {
+    "id": "switch",
+    "nome": "Toggle/switch",
+    "caminho": "partials/componentes/switch.html",
+    "regras": "Checkbox com role switch para ativação imediata.",
+    "estados": "On/off, foco visível, hover e disabled; estado lido pelo leitor de tela."
+  },
+  {
+    "id": "slider",
+    "nome": "Slider/range",
+    "caminho": "partials/componentes/slider.html",
+    "regras": "Controle nativo rotulado com saída numérica sincronizada.",
+    "estados": "Arraste ou use setas; foco, hover, ativo e disabled."
+  },
+  {
+    "id": "busca",
+    "nome": "Campo de busca",
+    "caminho": "partials/componentes/busca.html",
+    "regras": "Use search com rótulo e resultados locais filtráveis.",
+    "estados": "Foco, hover, preenchido, vazio e disabled; anuncie quantidade de resultados."
+  },
+  {
+    "id": "card",
+    "nome": "Card",
+    "caminho": "partials/componentes/card.html",
+    "regras": "Agrupe conteúdo relacionado em uma superfície com título.",
+    "estados": "Cards informativos não fingem ser botões; ações internas têm hover, foco, ativo e disabled."
+  },
+  {
+    "id": "carrossel",
+    "nome": "Carrossel",
+    "caminho": "partials/componentes/carrossel.html",
+    "regras": "Slides com navegação anterior/próximo e contador; sem reprodução automática.",
+    "estados": "Informe slide atual; controles por teclado, foco e limites desabilitados."
+  },
+  {
+    "id": "moldura",
+    "nome": "Molduras de imagem",
+    "caminho": "partials/componentes/moldura.html",
+    "regras": "Exiba versões quadrada, arredondada e circular, com texto alternativo.",
+    "estados": "Imagens informativas são estáticas; controles associados preservam todos os estados."
+  },
+  {
+    "id": "bloco",
+    "nome": "Bloco decorativo",
+    "caminho": "partials/componentes/bloco.html",
+    "regras": "Faixa de fundo com gradiente por tokens e conteúdo legível em superfície sólida.",
+    "estados": "Decoração não recebe foco; respeite movimento reduzido."
+  },
+  {
+    "id": "avatar",
+    "nome": "Avatar",
+    "caminho": "partials/componentes/avatar.html",
+    "regras": "Identificação visual com iniciais e nome acessível.",
+    "estados": "Avatar informativo estático; ações de perfil são botões com estados completos."
+  },
+  {
+    "id": "badge",
+    "nome": "Badge/etiqueta",
+    "caminho": "partials/componentes/badge.html",
+    "regras": "Combine texto e cor para expressar status.",
+    "estados": "Informativo e não interativo; preserve contraste e status por extenso."
+  },
+  {
+    "id": "chip",
+    "nome": "Chip/tag removível",
+    "caminho": "partials/componentes/chip.html",
+    "regras": "Tag com botão de remoção rotulado e alvo de toque amplo.",
+    "estados": "Remova por teclado, recoloque foco no próximo controle; disabled impede remoção."
+  },
+  {
+    "id": "alerta",
+    "nome": "Alerta/banner",
+    "caminho": "partials/componentes/alerta.html",
+    "regras": "Mensagem em região de status com título e orientação.",
+    "estados": "Informativo, sucesso, alerta e erro diferenciados por texto e ícone."
+  },
+  {
+    "id": "toast",
+    "nome": "Toast/notificação",
+    "caminho": "partials/componentes/toast.html",
+    "regras": "Feedback em região aria-live polite, com fechamento manual.",
+    "estados": "Exiba após ação e sem mover foco; respeite movimento reduzido."
+  },
+  {
+    "id": "modal",
+    "nome": "Modal/diálogo",
+    "caminho": "partials/componentes/modal.html",
+    "regras": "Use dialog nativo, título associado, foco inicial e retorno ao acionador.",
+    "estados": "Abra por botão; Escape e cancelar fecham; foco contido enquanto aberto."
+  },
+  {
+    "id": "tooltip",
+    "nome": "Tooltip",
+    "caminho": "partials/componentes/tooltip.html",
+    "regras": "Ajuda disponível no hover e no foco via aria-describedby.",
+    "estados": "Escape oculta; não coloque informação essencial somente na dica."
+  },
+  {
+    "id": "abas",
+    "nome": "Abas",
+    "caminho": "partials/componentes/abas.html",
+    "regras": "Tablist, tab e tabpanel associados com roving tabindex.",
+    "estados": "Setas, Home e End movem e ativam abas; aria-selected sincronizado."
+  },
+  {
+    "id": "acordeao",
+    "nome": "Acordeão",
+    "caminho": "partials/componentes/acordeao.html",
+    "regras": "Use details e summary com título claro.",
+    "estados": "Enter ou Espaço expande; foco visível e estado aberto nativo."
+  },
+  {
+    "id": "dropdown",
+    "nome": "Menu dropdown",
+    "caminho": "partials/componentes/dropdown.html",
+    "regras": "Botão disclosure com aria-expanded e menu de ações.",
+    "estados": "Setas percorrem itens; Escape e clique externo fecham e devolvem foco."
+  },
+  {
+    "id": "navegacao",
+    "nome": "Barra de navegação",
+    "caminho": "partials/componentes/navegacao.html",
+    "regras": "Nav nomeada com seção atual indicada por aria-current.",
+    "estados": "Links ou botões com foco visível e seleção atual; versão móvel sem overflow."
+  },
+  {
+    "id": "breadcrumb",
+    "nome": "Breadcrumb",
+    "caminho": "partials/componentes/breadcrumb.html",
+    "regras": "Nav com lista ordenada e última etapa marcada como atual.",
+    "estados": "Etapas anteriores acionáveis por teclado, com hover e foco."
+  },
+  {
+    "id": "paginacao",
+    "nome": "Paginação",
+    "caminho": "partials/componentes/paginacao.html",
+    "regras": "Controles anterior/próximo e número atual anunciado.",
+    "estados": "Limites desabilitados; atualização real do conjunto local de dados."
+  },
+  {
+    "id": "tabela",
+    "nome": "Tabela",
+    "caminho": "partials/componentes/tabela.html",
+    "regras": "Caption e cabeçalhos com escopo; região rolável em telas estreitas.",
+    "estados": "Ordenação por botão com aria-sort; linhas selecionáveis via checkbox."
+  },
+  {
+    "id": "lista",
+    "nome": "Lista com ícones",
+    "caminho": "partials/componentes/lista.html",
+    "regras": "Lista semântica com ícones SVG e textos de apoio.",
+    "estados": "Ícones decorativos ocultos de leitores; ações internas com estados completos."
+  },
+  {
+    "id": "progresso",
+    "nome": "Barra de progresso",
+    "caminho": "partials/componentes/progresso.html",
+    "regras": "Progress nativo com rótulo e valor textual.",
+    "estados": "Atualize valor após ação; nunca comunique progresso somente pela cor."
+  },
+  {
+    "id": "skeleton",
+    "nome": "Skeleton/carregamento",
+    "caminho": "partials/componentes/skeleton.html",
+    "regras": "Placeholder visual sem conteúdo falso; texto de carregamento acessível.",
+    "estados": "Animação discreta, desligada em prefers-reduced-motion; decorativo sem foco."
+  },
+  {
+    "id": "divisor",
+    "nome": "Divisor",
+    "caminho": "partials/componentes/divisor.html",
+    "regras": "Separação semântica via hr usando borda dos tokens.",
+    "estados": "Elemento estático não recebe estados interativos artificiais."
+  },
+  {
+    "id": "tipografia",
+    "nome": "Tipografia",
+    "caminho": "partials/componentes/tipografia.html",
+    "regras": "Inclua h1 a h4, parágrafo, citação, link e código; família e escala dos tokens.",
+    "estados": "Links distinguíveis e focáveis; títulos com hierarquia lógica no contexto."
+  },
+  {
+    "id": "rodape",
+    "nome": "Rodapé",
+    "caminho": "partials/componentes/rodape.html",
+    "regras": "Encerre a região com metadados e navegação de apoio.",
+    "estados": "Links e botões com foco e hover; texto secundário com contraste AA."
+  }
+]

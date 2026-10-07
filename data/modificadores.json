@@ -1,0 +1,197 @@
+{
+  "padrao": {
+    "estilo": "minimalista-suico",
+    "layout": "dashboard",
+    "paleta": "verde-esmeralda",
+    "modo": "claro",
+    "tipografia": "geometrica",
+    "raio": "estilo",
+    "densidade": "confortavel",
+    "sombra": "estilo",
+    "dispositivo": "desktop",
+    "tela": "layouts",
+    "tamanhoPrompt": "completo-css"
+  },
+  "tipografias": [
+    {
+      "id": "geometrica",
+      "nome": "Sans geométrica",
+      "tokens": {
+        "--fonte": "\"Century Gothic\", \"Avenir Next\", \"Segoe UI\", sans-serif"
+      }
+    },
+    {
+      "id": "humanista",
+      "nome": "Sans humanista",
+      "tokens": {
+        "--fonte": "\"Segoe UI\", Calibri, Arial, sans-serif"
+      }
+    },
+    {
+      "id": "serifada",
+      "nome": "Serifada",
+      "tokens": {
+        "--fonte": "Georgia, \"Times New Roman\", serif"
+      }
+    },
+    {
+      "id": "mono",
+      "nome": "Monoespaçada",
+      "tokens": {
+        "--fonte": "Consolas, \"Courier New\", monospace"
+      }
+    }
+  ],
+  "raios": [
+    {
+      "id": "estilo",
+      "nome": "Do estilo",
+      "tokens": {}
+    },
+    {
+      "id": "0",
+      "nome": "0px",
+      "tokens": {
+        "--raio": "0px",
+        "--raio-pequeno": "0px"
+      }
+    },
+    {
+      "id": "4",
+      "nome": "4px",
+      "tokens": {
+        "--raio": "4px",
+        "--raio-pequeno": "4px"
+      }
+    },
+    {
+      "id": "8",
+      "nome": "8px",
+      "tokens": {
+        "--raio": "8px",
+        "--raio-pequeno": "8px"
+      }
+    },
+    {
+      "id": "16",
+      "nome": "16px",
+      "tokens": {
+        "--raio": "16px",
+        "--raio-pequeno": "12px"
+      }
+    },
+    {
+      "id": "999",
+      "nome": "999px",
+      "tokens": {
+        "--raio": "999px",
+        "--raio-pequeno": "12px"
+      }
+    }
+  ],
+  "densidades": [
+    {
+      "id": "compacta",
+      "nome": "Compacta",
+      "tokens": {
+        "--espaco": "12px",
+        "--altura-controle": "36px"
+      }
+    },
+    {
+      "id": "confortavel",
+      "nome": "Confortável",
+      "tokens": {
+        "--espaco": "18px",
+        "--altura-controle": "40px"
+      }
+    },
+    {
+      "id": "espacosa",
+      "nome": "Espaçosa",
+      "tokens": {
+        "--espaco": "26px",
+        "--altura-controle": "48px"
+      }
+    }
+  ],
+  "sombras": [
+    {
+      "id": "estilo",
+      "nome": "Do estilo",
+      "tokens": {}
+    },
+    {
+      "id": "nenhuma",
+      "nome": "Sem sombra",
+      "tokens": {
+        "--sombra": "none",
+        "--sombra-hover": "none",
+        "--sombra-interna": "none"
+      }
+    },
+    {
+      "id": "suave",
+      "nome": "Suave",
+      "tokens": {
+        "--sombra": "0 2px 8px color-mix(in srgb, var(--texto) 10%, transparent)",
+        "--sombra-hover": "0 4px 12px color-mix(in srgb, var(--texto) 14%, transparent)"
+      }
+    },
+    {
+      "id": "intensa",
+      "nome": "Intensa",
+      "tokens": {
+        "--sombra": "0 10px 30px color-mix(in srgb, var(--texto) 22%, transparent)",
+        "--sombra-hover": "0 16px 40px color-mix(in srgb, var(--texto) 28%, transparent)"
+      }
+    }
+  ],
+  "modos": [
+    {
+      "id": "claro",
+      "nome": "Claro"
+    },
+    {
+      "id": "escuro",
+      "nome": "Escuro"
+    }
+  ],
+  "dispositivos": [
+    {
+      "id": "desktop",
+      "nome": "Desktop",
+      "largura": "100%"
+    },
+    {
+      "id": "tablet",
+      "nome": "Tablet",
+      "largura": "768px"
+    },
+    {
+      "id": "celular",
+      "nome": "Celular",
+      "largura": "390px"
+    }
+  ],
+  "tokensBase": {
+    "--fonte-mono": "Consolas, \"Courier New\", monospace",
+    "--escala-xs": ".72rem",
+    "--escala-sm": ".82rem",
+    "--escala-base": ".92rem",
+    "--escala-h4": "1rem",
+    "--escala-h3": "1.2rem",
+    "--escala-h2": "1.65rem",
+    "--escala-h1": "1.9rem",
+    "--entrelinha": "1.6",
+    "--peso-corpo": "400",
+    "--peso-acao": "600",
+    "--foco-espessura": "2px",
+    "--borda-cor": "var(--borda)",
+    "--cor-ornamento": "var(--primaria)",
+    "--largura-leitura": "66ch",
+    "--espaco": "18px",
+    "--altura-controle": "40px",
+    "--fonte": "\"Segoe UI\", sans-serif"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "versao": 1,
+  "restricoes": "Use HTML semântico e mantenha a hierarquia de títulos. Garanta WCAG AA: 4,5:1 para texto comum, 3:1 para texto grande e limites de controles; não dependa apenas de cores. Foco sempre visível, uso completo por teclado, rótulos e ARIA corretos. Respeite prefers-reduced-motion. Use somente cores dos tokens. Estados hover, foco, ativo e desabilitado são obrigatórios nos elementos interativos; elementos informativos não recebem interação artificial. Não adicione dependências, fontes ou imagens externas. Adapte à stack existente sem exigir framework. Preserve comportamento e dados da aplicação. Não implemente autenticação, pagamento nem backend apenas porque o layout ilustra esses fluxos.",
+  "modelos": [
+    {
+      "id": "curto",
+      "nome": "Curto",
+      "template": "{resumo}\n\nDIREÇÃO VISUAL\n{estiloResumido}\n\nESTRUTURA\n{layout}\n\nTOKENS\n{tokens}\n\nCOMPONENTES\n{componentesResumidos}\n\nTIPOGRAFIA\n{tipografiaResumida}\n\nRESTRIÇÕES\n{restricoes}"
+    },
+    {
+      "id": "completo",
+      "nome": "Completo",
+      "template": "{resumo}\n\nDIREÇÃO VISUAL\n{estilo}\n\nESTRUTURA DO LAYOUT\n{layout}\n\nTIPOGRAFIA E MODIFICADORES\n{tipografia}\n\nTOKENS EXATOS\n{tokens}\n\nCOMPONENTES E ESTADOS\n{componentes}\n\nRESTRIÇÕES\n{restricoes}"
+    },
+    {
+      "id": "completo-css",
+      "nome": "Completo + CSS",
+      "template": "{resumo}\n\nDIREÇÃO VISUAL\n{estilo}\n\nESTRUTURA DO LAYOUT\n{layout}\n\nTIPOGRAFIA E MODIFICADORES\n{tipografia}\n\nTOKENS EXATOS\n{tokens}\n\nCOMPONENTES E ESTADOS\n{componentes}\n\nCSS DE REFERÊNCIA\n{cssComponentes}\n\nRESTRIÇÕES\n{restricoes}"
+    }
+  ],
+  "cssReferencia": ".componente { color: var(--texto); background: var(--superficie); border: var(--borda-espessura) var(--borda-estilo) var(--borda-cor); border-radius: var(--raio); padding: var(--espaco); box-shadow: var(--sombra); font: var(--peso-corpo) var(--escala-base)/var(--entrelinha) var(--fonte); }\n.acao { min-height: var(--altura-controle); color: var(--sobre-primaria); background: var(--primaria); transition: transform var(--transicao) var(--easing), box-shadow var(--transicao) var(--easing); }\n.acao:hover:not(:disabled) { transform: translateY(var(--deslocamento-hover)); box-shadow: var(--sombra-hover); }\n.acao:active:not(:disabled) { transform: translateY(1px); }\n:focus-visible { outline: var(--foco-espessura) solid var(--primaria); outline-offset: 3px; }\n:disabled, [aria-disabled=\"true\"] { opacity: .55; cursor: not-allowed; }\n@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }"
+}

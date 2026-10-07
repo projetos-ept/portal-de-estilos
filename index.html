@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Combine estilos, layouts e paletas. Explore em tempo real e leve um prompt completo para a sua próxima aplicação.">
+  <meta name="theme-color" content="#294d3c">
+  <meta name="htmx-config" content='{"selfRequestsOnly":true,"allowEval":false,"allowScriptTags":false,"historyCacheSize":0,"includeIndicatorStyles":false}'>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self'">
+  <title>Portal de Estilos — Experimente. Combine. Crie.</title>
+  <link rel="icon" href="img/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/portal.css">
+  <script src="vendor/htmx.min.js" defer></script>
+  <script src="js/app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Pular para o laboratório</a>
+  <svg class="sr-only" aria-hidden="true"><defs>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.6 6.8L22 12l-7.4 3.2L12 22l-2.6-6.8L2 12l7.4-3.2L12 2Z"/><path d="M19 2v4m-2-2h4"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m3 7 9-5 9 5-9 5-9-5Zm0 5 9 5 9-5M3 17l9 5 9-5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18h1a2 2 0 0 0 1-4c-2-1 0-3 2-3h2c5 0 3-11-6-11Z"/><circle cx="7" cy="10" r="1"/><circle cx="11" cy="7" r="1"/><circle cx="16" cy="8" r="1"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M20 12H4m6-6-6 6 6 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20 5c-3-3-7-1-8 1-1-2-5-4-8-1-4 4 1 9 8 15 7-6 12-11 8-15Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 1-5 5 1.2 7L12 18l-6.2 3.5 1.2-7-5-5 7-1L12 2Z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M3 6h3c5 0 7 12 12 12h3m-4-4 4 4-4 4M3 18h3c2 0 4-3 6-6s4-6 6-6h3m-4-4 4 4-4 4"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 2 8M3 3v7h7"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 22h8m-4-5v5"/></symbol>
+    <symbol id="i-tablet" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15A9 9 0 0 1 9 3a9 9 0 1 0 11 12Z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 5h7l2 3h9v12H3V5Z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 7 3-3a5 5 0 0 1 7 7l-3 3m-3 3-3 3a5 5 0 0 1-7-7l3-3m1 6 8-8"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></symbol>
+    <symbol id="i-sort" viewBox="0 0 24 24"><path d="m7 4-3 3h6M7 4v16m10 0 3-3h-6m3 3V4"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-8 9 8v11h-6v-7H9v7H3V10Z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="16" cy="17" r="3"/></symbol>
+  </defs></svg>
+  <header class="portal-header">
+    <a class="portal-brand" href="./" aria-label="Portal de Estilos, início"><img src="img/icon.svg" width="33" height="33" alt=""><span>portal<span class="brand-light"> de </span>estilos<span class="brand-dot">.</span></span></a>
+    <span class="header-caption">Um laboratório de possibilidades</span>
+    <div class="header-actions"><span class="network-status" id="network-status" role="status"><i></i> Online</span><button class="p-button profile-trigger" id="open-profiles"><svg class="icon" aria-hidden="true"><use href="#i-folder"></use></svg><span id="active-profile-name">Meu primeiro projeto</span><svg class="icon small-icon" aria-hidden="true"><use href="#i-chevron"></use></svg></button></div>
+  </header>
+  <main class="portal-main">
+    <section class="intro" aria-labelledby="portal-title"><div><span class="overline">EXPERIMENTE. COMBINE. CRIE.</span><h1 id="portal-title">Uma ideia. <em>Infinitas direções.</em></h1><p>Encontre a linguagem visual do seu próximo projeto — e leve o prompt com você.</p></div><div class="combination-count"><span class="count-mark">✳</span><div><strong id="combination-count">—</strong><span>combinações para explorar</span></div></div></section>
+    <div id="fatal-error" class="portal-error" role="alert" hidden></div>
+    <div id="storage-warning" class="portal-warning" role="status" hidden></div>
+    <div id="update-banner" class="update-banner" role="status" hidden><span>Uma nova versão está pronta.</span><button class="p-button primary" id="apply-update">Atualizar agora</button></div>
+    <noscript><div class="portal-error">Ative o JavaScript para combinar temas, carregar dados locais e gerar prompts.</div></noscript>
+    <section class="workspace" id="workspace" aria-label="Laboratório de estilos">
+      <aside class="controls-panel panel" id="controls-panel" aria-labelledby="controls-title">
+        <div class="panel-title"><h2 id="controls-title">Sua direção criativa</h2><button class="p-icon drawer-close" id="close-controls" aria-label="Fechar controles"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button><span class="step-label">01 — COMBINE</span></div>
+        <div class="selector-tabs" role="tablist" aria-label="Variáveis da combinação"><button type="button" role="tab" id="selector-estilos" aria-controls="selection-panel" aria-selected="true" data-selector="estilos"><svg class="icon" aria-hidden="true"><use href="#i-spark"></use></svg>Estilo</button><button type="button" role="tab" id="selector-layouts" aria-controls="selection-panel" aria-selected="false" tabindex="-1" data-selector="layouts"><svg class="icon" aria-hidden="true"><use href="#i-grid"></use></svg>Layout</button><button type="button" role="tab" id="selector-paletas" aria-controls="selection-panel" aria-selected="false" tabindex="-1" data-selector="paletas"><svg class="icon" aria-hidden="true"><use href="#i-palette"></use></svg>Paleta</button></div>
+        <div id="selection-panel" role="tabpanel" aria-labelledby="selector-estilos">
+          <label class="selector-search"><svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg><span class="sr-only">Buscar por nome</span><input id="selector-search" type="search" placeholder="Encontre um estilo" autocomplete="off"></label>
+          <label class="category-filter" id="category-wrap" hidden>Categoria<select id="layout-category"><option value="">Todas as categorias</option></select></label>
+          <div class="selection-meta"><span id="selection-heading">Estilos visuais</span><span id="selection-count">20 estilos</span></div>
+          <div class="selection-grid" id="selection-grid" aria-label="Opções disponíveis"></div>
+          <p class="selection-description" id="selection-description"></p>
+        </div>
+        <div class="adjustments"><div class="adjustments-heading"><h3>Os detalhes fazem diferença</h3><svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg></div><div class="mode-toggle" id="mode-toggle" role="group" aria-label="Modo de cor"></div><div class="modifier-grid" id="modifier-grid"></div></div>
+        <div class="control-actions"><button class="p-button" id="randomize"><svg class="icon" aria-hidden="true"><use href="#i-shuffle"></use></svg>Aleatório</button><button class="p-button subtle" id="reset"><svg class="icon" aria-hidden="true"><use href="#i-reset"></use></svg>Resetar</button></div>
+      </aside>
+      <section class="preview-panel" aria-label="Prévia da combinação">
+        <div class="preview-topline"><div class="view-tabs" role="tablist" aria-label="Conteúdo da prévia"><button role="tab" id="view-layouts" aria-controls="preview-root" aria-selected="true" data-view="layouts">Prévia ao vivo<span class="live-dot"></span></button><button role="tab" id="view-catalogo" aria-controls="preview-root" aria-selected="false" tabindex="-1" data-view="catalogo">Componentes <span id="component-count">36</span></button></div><button class="p-icon" id="share" aria-label="Copiar link desta combinação" title="Copiar link"><svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg></button></div>
+        <div class="preview-frame"><div class="preview-toolbar"><div class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="preview-location" id="preview-location">studio / visão geral</span><div class="device-switch" id="device-switch" role="group" aria-label="Tamanho da prévia"></div></div><div class="preview-stage" id="preview-stage"><div id="preview-viewport" class="theme-scope"><div id="preview-root" role="tabpanel" aria-labelledby="view-layouts" aria-live="off"><p class="boot-message">Preparando seu laboratório de estilos.</p></div></div></div></div>
+        <div class="preview-bottom"><div class="current-combination" id="current-combination"></div><button class="p-button save-combination" id="save-combination"><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg>Salvar combinação</button></div><div class="preview-note"><span id="preview-status" role="status">Carregando dados locais</span><span>Interaja com a prévia. Ela é de verdade.</span></div>
+        <button id="layout-loader" type="button" hidden hx-trigger="carregar-layout" hx-target="#preview-root" hx-swap="innerHTML" hx-sync="this:replace" hx-params="none">Carregar layout</button>
+      </section>
+      <aside class="output-panel panel" aria-labelledby="output-title"><div class="panel-title"><span class="step-label">02 — LEVE COM VOCÊ</span><span class="output-spark">✦</span></div><h2 id="output-title">Sua ideia, em palavras.</h2><p class="output-description">Pronto para a IA que você já usa.</p><div class="output-tabs" role="tablist" aria-label="Formato de saída"><button role="tab" id="tab-prompt" aria-controls="output-panel-content" aria-selected="true" data-output="prompt">Prompt</button><button role="tab" id="tab-css" aria-controls="output-panel-content" aria-selected="false" tabindex="-1" data-output="css">CSS</button><button role="tab" id="tab-json" aria-controls="output-panel-content" aria-selected="false" tabindex="-1" data-output="json">Tokens JSON</button></div><div id="output-panel-content" role="tabpanel" aria-labelledby="tab-prompt"><label class="prompt-size-label" id="prompt-size-wrap">Nível de detalhe<select id="prompt-size"></select></label><div class="code-header"><span id="output-filename">direcao-criativa.txt</span><span class="code-status"><i></i> pronto</span></div><label class="sr-only" for="output-text">Conteúdo para copiar</label><textarea id="output-text" readonly spellcheck="false" aria-describedby="output-help"></textarea><div class="output-stats"><span id="output-stats">0 caracteres</span><span id="output-token-count">Tokens exatos</span></div></div><button class="p-button primary copy-button" id="copy-output"><svg class="icon" aria-hidden="true"><use href="#i-copy"></use></svg><span>Copiar prompt</span><span class="copy-shortcut">↗</span></button><button class="p-button download-button" id="download-output"><svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>Baixar arquivo</button><div class="output-tip" id="output-help"><svg class="icon" aria-hidden="true"><use href="#i-spark"></use></svg><p>Cole na conversa com sua IA e diga o que quer construir. A direção visual já está pronta.</p></div><div class="local-assurance"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>100% local. Suas ideias ficam com você.</div></aside>
+    </section>
+    <footer class="portal-footer"><span>Um ponto de partida para algo que é só seu.</span><span id="offline-readiness" role="status">Preparando uso offline</span><span>HTML + CSS + htmx <i>·</i> Feito para explorar</span></footer>
+  </main>
+  <button class="mobile-controls-button p-button primary" id="open-controls" aria-controls="controls-panel" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg>Personalizar combinação</button>
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <div class="portal-toast" id="portal-toast" role="status" aria-live="polite" hidden><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span></span><button class="p-icon" id="close-toast" aria-label="Fechar notificação"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button></div>
+  <dialog id="profiles-dialog" class="portal-dialog profiles-dialog" aria-labelledby="profiles-title"><header><div><span class="overline">SUA BIBLIOTECA</span><h2 id="profiles-title">Boas ideias merecem ficar.</h2></div><button class="p-icon" data-close-dialog aria-label="Fechar perfis"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button></header><div class="profile-selector-row"><label>Perfil ativo<select id="profile-select"></select></label><button class="p-button primary" data-profile-action="create">Novo perfil</button></div><div class="profile-actions"><button class="p-button" data-profile-action="rename">Renomear perfil</button><button class="p-button" data-profile-action="duplicate">Duplicar perfil</button><button class="p-button danger" data-profile-action="delete">Excluir perfil</button></div><div class="saved-list" id="saved-list"></div><footer><div class="export-actions"><button class="p-button" data-profile-action="export">Exportar perfil</button><button class="p-button" data-profile-action="export-all">Exportar todos</button></div><div class="import-actions"><label>Ao importar<select id="import-mode"><option value="mesclar">Mesclar com meus perfis</option><option value="substituir">Substituir todos os perfis</option></select></label><button class="p-button" id="import-profiles"><svg class="icon" aria-hidden="true"><use href="#i-upload"></use></svg>Importar JSON</button><input type="file" id="import-file" accept=".json,application/json" hidden></div><p class="form-error" id="profile-error" role="alert" hidden></p></footer></dialog>
+  <dialog id="form-dialog" class="portal-dialog" aria-labelledby="form-title"><form method="dialog" id="portal-form"><span class="overline">PORTAL DE ESTILOS</span><h2 id="form-title">Salvar combinação</h2><p id="form-description"></p><div id="form-fields"></div><div class="dialog-actions"><button class="p-button" type="button" id="form-cancel">Cancelar</button><button class="p-button primary" id="form-confirm" value="confirmar">Salvar</button></div></form></dialog>
+</body>
+</html>
