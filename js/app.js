@@ -1,3 +1,6 @@
+import { chaveContexto, resolverContexto } from './contexto.js';
+import { renderContexto, iniciarContextoUI } from './contexto-ui.js';
+import { aplicarContexto, iniciarContextoPreview } from './contexto-preview.js';
 import { carregarDados } from './dados.js';
 import { criarEstado, lerHash, hashEstado } from './estado.js';
 import { gerarTokens, aplicarTokens } from './tema.js';
@@ -21,6 +24,8 @@ function avisoArmazenamento(mensagem) { const el=$('#storage-warning');el.textCo
 function selecionarAba(grupo,botao) { $$('[role="tab"]',grupo).forEach(b=>{b.setAttribute('aria-selected',String(b===botao));b.tabIndex=b===botao?0:-1;}); }
 
 function renderSeletores() {
+  $('#selection-panel').hidden=seletor==='contextos';$('#context-panel').hidden=seletor!=='contextos';
+  if(seletor==='contextos'){renderContexto(dados,estado);return;}
   const atual=estado.get();const config=configuracaoSeletores[seletor];const query=normalizar($('#selector-search').value);const categoria=$('#layout-category').value;
   const lista=dados[seletor].filter(item=>normalizar(item.nome).includes(query)&&(seletor!=='layouts'||!categoria||item.categoria===categoria));
   const grid=$('#selection-grid');const rolagem=grid.scrollTop;grid.classList.toggle('palette-options',seletor==='paletas');
@@ -41,6 +46,7 @@ function renderSeletores() {
 }
 function renderControles() {
   const atual=estado.get();
+  $('#pwa-toggle').checked=atual.pwa;$('#pwa-label').textContent=dados['prompt-modelos'].pwa.rotulo;$('#pwa-help').textContent=dados['prompt-modelos'].pwa.ajuda;
   $('#mode-toggle').innerHTML=dados.modificadores.modos.map(m=>`<button type="button" data-mode="${m.id}" aria-pressed="${m.id===atual.modo}">${icone(m.id==='claro'?'sun':'moon')}${escapar(m.nome)}</button>`).join('');
   $('#modifier-grid').innerHTML=Object.entries(configuracaoModificadores).map(([campo,c])=>`<label>${c.nome}<select data-modifier="${campo}" aria-label="${c.nome}">${dados.modificadores[c.grupo].map(m=>`<option value="${m.id}" ${m.id===atual[campo]?'selected':''}>${escapar(m.nome)}</option>`).join('')}</select></label>`).join('');
   const deviceIcons=['monitor','tablet','phone'];
@@ -55,14 +61,15 @@ function atualizarSaida() {
   $('#output-token-count').textContent=`${Object.keys(saidas.tokens).length} tokens`;
   $('#copy-output span').textContent=`Copiar ${cfg.rotulo}`;$('#copy-output').setAttribute('aria-label',`Copiar ${cfg.rotulo}`);
   $('#download-output').setAttribute('aria-label',`Baixar arquivo ${cfg.nome}`);
-  $('#prompt-size-wrap').hidden=formato!=='prompt';$('#output-panel-content').setAttribute('aria-labelledby',`tab-${formato}`);
-  $('#current-combination').innerHTML=[saidas.estilo.nome,saidas.layout.nome,saidas.paleta.nome].map(s=>`<span>${escapar(s)}</span>`).join('<i>×</i>');
+  $('#prompt-size-wrap').hidden=formato!=='prompt';$('#pwa-option-wrap').hidden=formato!=='prompt';$('#output-panel-content').setAttribute('aria-labelledby',`tab-${formato}`);
+  $('#current-combination').innerHTML=[saidas.estilo.nome,saidas.layout.nome,saidas.paleta.nome,...(resolverContexto(dados,estado.get())?[resolverContexto(dados,estado.get()).aplicacao.nome+' · '+resolverContexto(dados,estado.get()).visao.nome]:[])].map(s=>`<span>${escapar(s)}</span>`).join('<i>×</i>');
   $('#preview-location').textContent=estado.get().tela==='catalogo'?'studio / catálogo de componentes':`studio / ${saidas.layout.nome.toLowerCase()}`;
 }
 function verificarPronto() {
   const slots=$$('.component-slot',preview);const carregados=slots.filter(s=>s.dataset.loaded==='true').length;
   const atual=estado.get();const contextoEsperado=atual.tela==='catalogo'?'catalogo':atual.layout;
   pronto=preview.dataset.contexto===contextoEsperado&&slots.length>0&&carregados===slots.length;
+  if(pronto&&preview.dataset.contextoAplicado!==chaveContexto(atual)){aplicarContexto(preview,dados,atual);preview.dataset.contextoAplicado=chaveContexto(atual);}
   preview.setAttribute('aria-busy',String(!pronto));preview.inert=!pronto;
   $('#copy-output').disabled=!pronto;$('#save-combination').disabled=!pronto;$('#download-output').disabled=!pronto;
   const tipos=new Set(slots.map(s=>s.dataset.component)).size;
@@ -77,7 +84,7 @@ function preencherSlots(raiz) {
   }
 }
 function carregarPreview() {
-  const atual=estado.get();pronto=false;preview.dataset.contexto='';document.documentElement.dataset.ready='false';preview.setAttribute('aria-busy','true');preview.inert=true;
+  const atual=estado.get();pronto=false;preview.dataset.contexto='';delete preview.dataset.contextoAplicado;document.documentElement.dataset.ready='false';preview.setAttribute('aria-busy','true');preview.inert=true;
   $('#copy-output').disabled=true;$('#save-combination').disabled=true;$('#download-output').disabled=true;$('#preview-status').textContent='Carregando a composição local';
   const loader=$('#layout-loader');htmx.trigger(loader,'htmx:abort');
   if(atual.tela==='catalogo') {
@@ -104,6 +111,7 @@ function configurarEventos() {
   $('#device-switch').addEventListener('click',e=>{const b=e.target.closest('[data-device]');if(b){const id=b.dataset.device;estado.set({dispositivo:id});$(`[data-device="${id}"]`).focus();}});
   $('#randomize').addEventListener('click',()=>{estado.aleatorio();notificar('Uma nova direção para explorar.');});
   $('#reset').addEventListener('click',()=>{estado.reset();notificar('Combinação inicial restaurada.');});
+  $('#pwa-toggle').addEventListener('change',e=>estado.set({pwa:e.target.checked}));
   $('#prompt-size').addEventListener('change',e=>{estado.set({tamanhoPrompt:e.target.value});$('#prompt-size').focus();});
   $('.output-tabs').addEventListener('click',e=>{const tab=e.target.closest('[data-output]');if(!tab)return;formato=tab.dataset.output;selecionarAba($('.output-tabs'),tab);atualizarSaida();});
   configurarAbas($('.output-tabs'),b=>b.click());
@@ -127,7 +135,7 @@ function configurarEventos() {
   for(const event of ['htmx:responseError','htmx:sendError'])document.body.addEventListener(event,e=>{
     if(e.detail.elt?.id==='layout-loader'||preview.contains(e.detail.elt))erroFatal(new Error(`Não foi possível carregar o parcial ${e.detail.pathInfo?.requestPath||e.detail.requestConfig?.path||'solicitado'}. Verifique se o arquivo existe e se o projeto está sendo servido localmente.`));
   });
-  iniciarInteracoes(preview);
+  iniciarInteracoes(preview);iniciarContextoPreview(preview);iniciarContextoUI(dados,estado);
   // A gaveta móvel mantém foco contido e torna o restante da interface inerte.
   const controles=$('#controls-panel');let focoAntes;
   const partes=()=>[$('.portal-header'),$('.intro'),$('.preview-panel'),$('.output-panel'),$('.portal-footer'),$('#open-controls')];
@@ -139,7 +147,7 @@ function configurarEventos() {
     else{controles.removeAttribute('role');controles.removeAttribute('aria-modal');focoAntes?.focus();}
   }
   $('#open-controls').addEventListener('click',()=>gaveta(true));$('#close-controls').addEventListener('click',()=>gaveta(false));$('#drawer-backdrop').addEventListener('click',()=>gaveta(false));
-  controles.addEventListener('keydown',e=>{if(!controles.classList.contains('drawer-open'))return;if(e.key==='Escape')gaveta(false);if(e.key==='Tab'){const focus=$$('button:not(:disabled),input,select,[tabindex="0"]',controles).filter(el=>el.getClientRects().length);const first=focus[0],last=focus.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+  controles.addEventListener('keydown',e=>{if(!controles.classList.contains('drawer-open'))return;if(e.key==='Escape')gaveta(false);if(e.key==='Tab'){const focus=$$('button:not(:disabled),input,textarea,select,[tabindex="0"]',controles).filter(el=>el.getClientRects().length);const first=focus[0],last=focus.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
   matchMedia('(max-width: 760px)').addEventListener('change',e=>{if(!e.matches&&controles.classList.contains('drawer-open'))gaveta(false);});
 }
 async function iniciarOffline() {
@@ -175,7 +183,7 @@ async function iniciar() {
     configurarEventos();iniciarPerfisUI(perfis,estado,dados);
     estado.ouvir((atual,anterior)=>{
       atualizarTema();renderSeletores();renderControles();atualizarSaida();history.replaceState(null,'',hashEstado(atual));perfis.atualizarEstado(atual);
-      if(atual.layout!==anterior.layout||atual.tela!==anterior.tela)carregarPreview();else verificarPronto();
+      if(atual.layout!==anterior.layout||atual.tela!==anterior.tela||chaveContexto(atual)!==chaveContexto(anterior))carregarPreview();else verificarPronto();
     });
     atualizarTema();renderSeletores();renderControles();atualizarSaida();history.replaceState(null,'',hashEstado(estado.get()));
     carregarPreview();iniciarOffline();

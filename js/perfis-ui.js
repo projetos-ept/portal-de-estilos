@@ -1,4 +1,5 @@
 import {$,$$,escapar,icone,baixar,notificar,formulario} from './util.js';
+import { resolverContexto } from './contexto.js';
 export function iniciarPerfisUI(perfis,estado,dados) {
   const dialog=$('#profiles-dialog');
   function render() {
@@ -7,7 +8,7 @@ export function iniciarPerfisUI(perfis,estado,dados) {
     $('#profile-select').innerHTML=biblioteca.perfis.map(p=>`<option value="${escapar(p.id)}" ${p.id===ativo.id?'selected':''}>${escapar(p.nome)}</option>`).join('');
     const itens=[...ativo.combinacoes].sort((a,b)=>Number(b.favorita)-Number(a.favorita)||b.atualizadaEm.localeCompare(a.atualizadaEm));
     $('#saved-list').innerHTML=itens.length?itens.map(c=>{
-      const nome=c.variaveis;const resumo=[dados.estilos.find(x=>x.id===nome.estilo).nome,dados.layouts.find(x=>x.id===nome.layout).nome,dados.paletas.find(x=>x.id===nome.paleta).nome,nome.modo].join(' · ');
+      const nome=c.variaveis;const resumo=[dados.estilos.find(x=>x.id===nome.estilo).nome,dados.layouts.find(x=>x.id===nome.layout).nome,dados.paletas.find(x=>x.id===nome.paleta).nome,nome.modo,...(nome.pwa?['PWA']:[]),...(resolverContexto(dados,nome)?[resolverContexto(dados,nome).aplicacao.nome,resolverContexto(dados,nome).visao.nome]:[])].join(' · ');
       return `<article class="saved-combination" data-id="${escapar(c.id)}"><header><h3>${escapar(c.nome)}</h3><button class="p-icon" data-saved="favorite" aria-pressed="${c.favorita}" aria-label="Favoritar ${escapar(c.nome)}">${icone('star')}</button></header><p>${escapar(resumo)}</p>${c.nota?`<p>${escapar(c.nota)}</p>`:''}<small>Criada em ${new Intl.DateTimeFormat('pt-BR',{dateStyle:'short',timeStyle:'short'}).format(new Date(c.criadaEm))}</small><div class="saved-actions"><button class="p-button primary" data-saved="apply">Aplicar</button><button class="p-button" data-saved="rename">Renomear / nota</button><button class="p-button" data-saved="export">Exportar</button><button class="p-button danger" data-saved="delete">Excluir</button></div></article>`;
     }).join(''):'<div class="empty-library"><strong>Sua próxima direção começa aqui.</strong><p>Use “Salvar combinação” para guardar o que você criar neste perfil.</p></div>';
   }
@@ -17,7 +18,7 @@ export function iniciarPerfisUI(perfis,estado,dados) {
   $$('[data-close-dialog]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
   $('#profile-select').addEventListener('change',e=>{estado.set(perfis.ativar(e.target.value),'perfil');notificar(`Perfil ativo: ${perfis.ativo().nome}.`);});
   $('#save-combination').addEventListener('click',async()=>{
-    const atual=estado.get();const nome=dados.estilos.find(s=>s.id===atual.estilo).nome+' · '+dados.paletas.find(p=>p.id===atual.paleta).nome;
+    const atual=estado.get();const ctx=resolverContexto(dados,atual);const nome=ctx?ctx.aplicacao.nome+' · '+ctx.visao.nome:dados.estilos.find(s=>s.id===atual.estilo).nome+' · '+dados.paletas.find(p=>p.id===atual.paleta).nome;
     const valores=await formulario({titulo:'Guarde esta direção.',descricao:`Será salva no perfil “${perfis.ativo().nome}”.`,campos:[{name:'nome',label:'Nome da combinação',value:nome},{name:'nota',label:'Uma nota para lembrar (opcional)',area:true}]});
     if(valores) {try{perfis.guardar(valores.nome,valores.nota,atual);notificar('Combinação salva no perfil ativo.');}catch(e){notificar(e.message);}}
   });

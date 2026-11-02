@@ -27,6 +27,32 @@ Todos os caminhos de execução são relativos à pasta do `index.html`. O servi
 
 O projeto está pronto para publicação, mas criar ou publicar um repositório não faz parte dos arquivos locais entregues. A publicação depende do repositório e da conta escolhidos por você.
 
+## Prompt adaptável e PWA opcional — versão 1.2.0
+
+Os três níveis de prompt agora começam pela adaptação ao conteúdo real do projeto de destino. Layout, quantidades, componentes e sugestões do segmento são referências opcionais. O texto instrui a IA a usar apenas os elementos necessários, preservar dados e comportamentos existentes e não criar funcionalidades para reproduzir a demonstração. Essa regra também vale em Genérico.
+
+No painel **Sua ideia, em palavras**, abaixo do nível de detalhe, marque **Preparar como PWA** para acrescentar instruções de manifesto, ícones locais, instalação compatível, cache, uso offline e atualizações. O alcance offline deve ser definido conforme o projeto: operações dependentes do servidor continuam precisando de rede. O checkbox configura o prompt do projeto de destino; o funcionamento offline do próprio portal permanece disponível.
+
+A opção começa desmarcada. A preferência `pwa` é booleana e acompanha links, última sessão, perfis, exportação/importação e Tokens JSON. Links e arquivos antigos sem o campo carregam `false`; valores inválidos são rejeitados. Resetar desmarca a opção e Aleatório mantém sua escolha. A prévia e os tokens CSS não mudam ao marcar PWA.
+
+Os requisitos técnicos foram conferidos nas referências da MDN sobre [instalação de PWAs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable) e [funcionamento offline](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation).
+
+## Contexto do projeto
+
+A quarta aba, **Contexto**, oferece **Segmento → Tipo de aplicação → Visão da interface**. São 8 segmentos (incluindo Genérico e Personalizado), 30 aplicações predefinidas, uma personalizada e até 5 visões por aplicação. As dependências são validadas; uma aplicação só oferece as visões compatíveis com ela.
+
+**Genérico é o padrão, mantém a prévia original e gera o prompt sem sugestões de domínio.** A orientação de adaptação ao conteúdo real é compartilhada por todos os contextos. O contexto não troca estilo, layout, paleta ou tokens CSS. Voltar a Genérico recarrega os parciais originais.
+
+Exemplo: **Educação → Banco de questões → Administração** adapta navegação, indicadores, tabela, filtros, campos, estados, ações e instruções do prompt. Experimente busca, paginação e os filtros de disciplina, assunto, tipo, dificuldade e status. O botão **Nova questão** abre um formulário ilustrativo com múltipla escolha, discursiva, verdadeiro ou falso e associação. Campos e gabarito mudam com o tipo. O formulário não grava questões; é uma demonstração da direção visual.
+
+As visões Administração, Operação, Portal do usuário, Análise e relatórios e Apresentação pública adaptam conteúdo e ações mantendo a estrutura do layout. O catálogo destaca os componentes pertinentes. Alguns exemplos ilustrativos do layout continuam compartilhados.
+
+**Personalizado** aceita nome (120 caracteres) e objetivo/público (1.000 caracteres). Use **Aplicar contexto** para atualizar prévia e prompt. Esse texto integra o link compartilhável, assim como as demais escolhas.
+
+Perfis e links antigos continuam válidos: a ausência dos campos de contexto significa Genérico. Novas combinações guardam `segmento`, `aplicacao`, `visao`, `contextoNome` e `contextoDescricao` no mesmo envelope `versao: 1`. Favoritar, exportar, importar e restaurar mantêm essas escolhas.
+
+Após atualizar os arquivos, recarregue o portal e use **Atualizar agora** quando o aviso da nova versão aparecer. Aguarde a indicação de disponibilidade offline.
+
 ## Usar o portal
 
 - Escolha **Estilo**, **Layout** ou **Paleta** no painel da esquerda. Há busca por nome e filtro de categoria na seleção de layouts.
@@ -34,7 +60,7 @@ O projeto está pronto para publicação, mas criar ou publicar um repositório 
 - Experimente as dimensões desktop, tablet e celular. O conteúdo responde à largura disponível do preview com container queries; em uma janela pequena, o tamanho é limitado ao espaço visível.
 - Alterne entre a composição e **Componentes**. O catálogo carrega cada um dos 36 parciais isoladamente.
 - Copie ou baixe a saída selecionada. A cópia fica habilitada somente quando a prévia termina de carregar, para evitar divergência entre o que está visível e o que é copiado.
-- O hash representa todas as escolhas, inclusive tela, dispositivo e tamanho do prompt. O botão de link copia a combinação. Perfis, notas e nomes privados não entram no link.
+- O hash representa todas as escolhas, inclusive tela, dispositivo e tamanho do prompt. O botão de link copia a combinação. Nomes de perfis e notas das combinações não entram no link; nome e descrição do contexto personalizado entram.
 - **Aleatório** sorteia estilo, layout e paleta. **Resetar** restaura os padrões declarados no JSON.
 - Em celulares, o botão **Personalizar combinação** abre a gaveta inferior. Escape fecha a gaveta; o foco fica contido enquanto ela está aberta.
 
@@ -55,12 +81,16 @@ data/
   componentes.json
   modificadores.json
   prompt-modelos.json
+  contextos.json
 partials/
   layouts/        30 fragmentos de estrutura
   componentes/   36 fragmentos de componentes
 js/
   dados.js       carregamento e validação dos catálogos
   estado.js      estado validado, aleatório e hash
+  contexto.js    validação, migração e conteúdo por visão
+  contexto-ui.js seleção dependente e contexto personalizado
+  contexto-preview.js adaptação da prévia e formulário ilustrativo
   tema.js        composição de tokens e cálculo de contraste
   prompt.js      templates e exportações de tema
   armazenamento.js
@@ -95,6 +125,7 @@ Os seletores, nomes, descrições, contagem de combinações e prompt são deriv
 - `layouts.json`: `id`, `nome`, `categoria`, `caminho`, `descricao`, `prompt`, `componentes`, `titulo`, `subtitulo`.
 - `componentes.json`: `id`, `nome`, `caminho`, `regras`, `estados`.
 - `modificadores.json`: opções de tipografia, raios, densidades, sombras, modos e dispositivos; `tokensBase` e `padrao`.
+- `contextos.json`: segmentos, aplicações, visões permitidas, navegação, indicadores, campos, filtros, registros fictícios, estados, ações, componentes em destaque e template de contexto. Os padrões de contexto ficam aqui; `estadoPadrao()` os reúne aos padrões visuais.
 - `prompt-modelos.json`: `versao`, `restricoes`, `modelos` e `cssReferencia`.
 
 IDs precisam ser únicos, em minúsculas, com letras, números e hífens. Cores devem usar hexadecimal de seis dígitos. Caminhos de parciais são relativos e restritos a `partials/layouts/` ou `partials/componentes/`. A validação rejeita JSON inválido, IDs repetidos, referências inexistentes e CSS com recursos externos ou instruções executáveis.
@@ -176,7 +207,7 @@ Erros de acesso, limite de quota, JSON malformado ou versão incompatível produ
 
 ## Offline e atualizações
 
-O service worker faz pré-cache de toda a aplicação, dos seis JSON, dos 30 layouts, dos 36 componentes, dos SVGs e do htmx local. A instalação só é concluída após todos os recursos terem sido guardados. Não é necessário visitar cada layout individualmente antes de ficar offline. A primeira visita precisa terminar a instalação; confirme o indicador no rodapé.
+O service worker faz pré-cache de toda a aplicação, dos sete JSON, dos 30 layouts, dos 36 componentes, dos SVGs e do htmx local. A instalação só é concluída após todos os recursos terem sido guardados. Não é necessário visitar cada layout individualmente antes de ficar offline. A primeira visita precisa terminar a instalação; confirme o indicador no rodapé.
 
 O nome do cache inclui o caminho da subpasta e a versão, evitando interferência entre instalações em repositórios diferentes. O worker novo aguarda; o portal mostra um aviso para atualizar. **Atualizar agora** ativa a versão pronta e recarrega a interface. As escolhas e a biblioteca ficam no armazenamento local. A ativação limpa apenas caches antigos desta instalação.
 
@@ -190,6 +221,8 @@ O site não depende de Node nem Playwright; eles são ferramentas opcionais de t
 
 ```sh
 node tests/verificar.mjs
+node tests/contexto.mjs
+node tests/prompt-pwa.mjs
 ```
 
 Esse teste valida JSON, quantidades, slots de todos os layouts, caminhos, contraste, 14.400 composições incluindo os dois modos, estados, prompts, perfis, importação, mesclagem, armazenamento indisponível e ausência de recursos remotos. O teste de navegador usa Playwright:
@@ -197,6 +230,8 @@ Esse teste valida JSON, quantidades, slots de todos os layouts, caminhos, contra
 ```sh
 python -m http.server 8000
 node tests/navegador.cjs
+node tests/contexto-navegador.cjs
+node tests/prompt-pwa-navegador.cjs
 ```
 
 Configure `PORTAL_TEST_URL` se usar outra porta ou testar a partir da pasta superior. Configure `PLAYWRIGHT_MODULE` com o caminho do pacote Playwright caso ele não esteja disponível no ambiente padrão. O teste grava evidências na pasta ignorada `test-results`. Consulte `RELATORIO-TESTES.md` para os resultados desta entrega.

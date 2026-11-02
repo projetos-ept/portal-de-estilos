@@ -1,5 +1,16 @@
 /* A moldura do laboratório é estável; apenas a prévia recebe os tokens escolhidos. */
 :root { --p-bg: #f6f7f3; --p-paper: #ffffff; --p-ink: #25382d; --p-muted: #626b61; --p-line: #dfe4da; --p-green: #294d3c; --p-soft: #eef2e8; --p-lime: #d5e3ae; }
+.context-intro h3 { margin: 0 0 7px; font-size: 13px; }
+.context-intro p, .context-footnote { color: var(--p-muted); font-size: 11px; line-height: 1.55; }
+.context-field { display: grid; gap: 6px; margin-top: 16px; font-size: 11px; font-weight: 600; }
+.context-field :is(select,input,textarea) { min-width: 0; width: 100%; background: var(--p-paper); color: var(--p-ink); border: 1px solid #aab6a4; border-radius: 7px; padding: 9px 7px; font: inherit; font-weight: 400; }
+.context-field select:disabled { background: var(--p-soft); color: var(--p-muted); }
+.context-field textarea { resize: vertical; }
+.context-custom .p-button { width: 100%; margin-top: 10px; }
+.context-explanation { padding: 13px; margin-top: 19px; border-radius: 8px; background: var(--p-soft); font-size: 11px; line-height: 1.55; overflow-wrap: anywhere; }
+.context-explanation p { margin: 7px 0; }
+.context-explanation small { color: var(--p-muted); }
+.context-footnote { margin: 14px 0 0; }
 body { background: var(--p-bg); color: var(--p-ink); font-family: "Segoe UI", Arial, sans-serif; font-size: 13px; }
 .portal-header { height: 76px; padding: 0 32px; display: flex; align-items: center; border-bottom: 1px solid var(--p-line); gap: 24px; background: #fafbf8; }
 .portal-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--p-ink); text-decoration: none; font-size: 21px; font-weight: 650; letter-spacing: -.9px; white-space: nowrap; }
@@ -42,8 +53,8 @@ body { background: var(--p-bg); color: var(--p-ink); font-family: "Segoe UI", Ar
 .controls-panel .panel-title { flex-wrap: wrap; }
 .step-label { font-family: Consolas, monospace; font-size: 8px; letter-spacing: .65px; color: var(--p-muted); }
 .controls-panel .step-label { width: 100%; margin-top: 1px; }
-.selector-tabs { display: grid; grid-template-columns: repeat(3,1fr); border-bottom: 1px solid var(--p-line); margin-top: 19px; margin-bottom: 16px; }
-.selector-tabs button { display: flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 0 12px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--p-muted); font-size: 10px; }
+.selector-tabs { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-bottom: 1px solid var(--p-line); margin-top: 19px; margin-bottom: 16px; }
+.selector-tabs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 8px 0 12px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--p-muted); font-size: 10px; }
 .selector-tabs button[aria-selected="true"] { color: var(--p-green); border-bottom-color: var(--p-green); font-weight: 650; }
 .selector-tabs .icon { width: 14px; height: 14px; }
 .selector-search { display: flex; align-items: center; border: 1px solid var(--p-line); background: #fbfcf9; border-radius: 6px; padding: 0 9px; gap: 7px; }
@@ -132,6 +143,11 @@ body { background: var(--p-bg); color: var(--p-ink); font-family: "Segoe UI", Ar
 .output-tabs button[aria-selected="true"] { color: var(--p-green); font-weight: 650; border-bottom-color: var(--p-green); }
 .prompt-size-label { display: flex; align-items: center; justify-content: space-between; font-size: 9px; color: var(--p-muted); margin-bottom: 14px; }
 .prompt-size-label select { font-size: 9px; border: 1px solid var(--p-line); padding: 6px; border-radius: 5px; color: var(--p-ink); background: #fff; max-width: 142px; }
+.pwa-option { padding: 11px; margin: 0 0 14px; border: 1px solid var(--p-line); border-radius: 7px; background: var(--p-soft); }
+.pwa-option label { display: flex; align-items: center; gap: 8px; min-height: 32px; color: var(--p-ink); font-size: 11px; font-weight: 600; cursor: pointer; }
+.pwa-option input { width: 17px; height: 17px; margin: 0; flex-shrink: 0; accent-color: var(--p-green); cursor: pointer; }
+.pwa-option p { margin: 5px 0 0; color: var(--p-muted); font-size: 10px; line-height: 1.5; }
+.pwa-option:has(input:checked) { border-color: var(--p-green); }
 .code-header { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 12px 12px 10px; background: #25382d; color: #d4e3c8; border-radius: 7px 7px 0 0; border-bottom: 1px solid #415640; font-family: Consolas, monospace; font-size: 8px; }
 .code-status { color: #cbdabc; display: flex; align-items: center; gap: 5px; }
 .code-status i { background: #abc992; width: 4px; height: 4px; }

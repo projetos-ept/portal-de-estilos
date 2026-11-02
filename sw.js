@@ -1,16 +1,16 @@
 /* Cache isolado por subpasta e versão. A instalação só termina quando tudo está disponível. */
-const VERSAO = '1.0.2';
+const VERSAO = '1.2.0';
 const PREFIXO = 'portal-estilos-' + encodeURIComponent(new URL(self.registration.scope).pathname) + '-';
 const CACHE = PREFIXO + VERSAO;
 const BASE = new URL('./',self.location.href);
 const locais = caminhos => caminhos.map(p=>new URL(p,BASE).href);
 const shell = [
   './','index.html','.nojekyll','.gitignore','manifest.webmanifest','sw.js','README.md','RELATORIO-TESTES.md',
-  'tests/verificar.mjs','tests/navegador.cjs',
+  'tests/verificar.mjs','tests/navegador.cjs','tests/contexto.mjs','tests/contexto-navegador.cjs','tests/generico-sha256.json','tests/prompt-pwa.mjs','tests/prompt-pwa-navegador.cjs',
   'css/base.css','css/componentes.css','css/portal.css',
-  'js/app.js','js/dados.js','js/estado.js','js/tema.js','js/prompt.js','js/armazenamento.js','js/perfis.js','js/perfis-ui.js','js/componentes.js','js/util.js',
+  'js/contexto.js','js/contexto-ui.js','js/contexto-preview.js','js/app.js','js/dados.js','js/estado.js','js/tema.js','js/prompt.js','js/armazenamento.js','js/perfis.js','js/perfis-ui.js','js/componentes.js','js/util.js',
   'vendor/htmx.min.js','vendor/LICENSE-htmx.txt','img/icon.svg','img/paisagem.svg','img/objeto.svg',
-  'data/estilos.json','data/paletas.json','data/layouts.json','data/componentes.json','data/modificadores.json','data/prompt-modelos.json'
+  'data/contextos.json','data/estilos.json','data/paletas.json','data/layouts.json','data/componentes.json','data/modificadores.json','data/prompt-modelos.json'
 ];
 async function obter(url) { const resposta=await fetch(url,{cache:'reload'});if(!resposta.ok)throw new Error('Não foi possível guardar '+url);return resposta; }
 self.addEventListener('install',event=>{

@@ -297,3 +297,18 @@
 
 /* O caminho atual fica legível inclusive sobre os extremos dos gradientes. */
 .ui-breadcrumb li[aria-current="page"] { color: var(--texto); }
+
+/* Contexto usa os mesmos tokens e cabe dentro de qualquer layout. */
+.context-banner { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: var(--espaco); padding: var(--espaco); background: var(--superficie); border: var(--borda-espessura) solid var(--borda-cor); border-left: 4px solid var(--primaria); border-radius: var(--raio); }
+.context-banner > div { flex: 1 1 210px; min-width: 0; }
+.context-banner strong { display: block; margin: .4em 0; overflow-wrap: anywhere; }
+.context-banner p { color: var(--texto-secundario); font-size: var(--escala-sm); }
+.context-highlight { outline: 1px solid var(--primaria); outline-offset: 3px; border-radius: var(--raio); }
+.context-filters { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(130px,100%),1fr)); gap: calc(var(--espaco) * .6); margin-bottom: var(--espaco); }
+.context-form-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--espaco); }
+.context-dialog { width: min(680px,calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: auto; }
+.context-answer { display: grid; gap: var(--espaco); border: 1px solid var(--borda-cor); border-radius: var(--raio); padding: var(--espaco); min-width: 0; }
+.context-answer legend { padding: 0 .5em; }
+.context-banner ~ * .ui-navigation { flex-wrap: wrap; }
+.context-banner ~ * .demo-brand { overflow-wrap: anywhere; white-space: normal; }
+@media (max-width: 520px) { .context-form-grid { grid-template-columns: 1fr; } }

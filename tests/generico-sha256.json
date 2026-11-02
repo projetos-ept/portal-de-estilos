@@ -1,0 +1,14 @@
+[
+  {
+    "id": "curto",
+    "sha256": "e50eb8854f0c9ca536917997e55b16d812c3aebb06aae6424435401e697cc5c9"
+  },
+  {
+    "id": "completo",
+    "sha256": "e3fe8519c2f33637e7af3f76abfbb016f26f1ab428fad510184772329e648264"
+  },
+  {
+    "id": "completo-css",
+    "sha256": "d46f62db74399a67b2c094ffe969663c77d6e214f45831603bd128774739cb51"
+  }
+]

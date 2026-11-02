@@ -1,4 +1,5 @@
 import { validarEstado } from './estado.js';
+import { estadoPadrao } from './contexto.js';
 import { assert } from './dados.js';
 export const uid = () => globalThis.crypto?.randomUUID?.() || `id-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 const agora = () => new Date().toISOString();
@@ -8,7 +9,7 @@ function dataValida(v, campo) { assert(typeof v === 'string' && /^\d{4}-\d{2}-\d
 function idValido(v, campo) { assert(typeof v === 'string' && /^[a-zA-Z0-9_-]{1,100}$/.test(v), `${campo}: identificador inválido.`); return v; }
 export function novaBiblioteca(dados) {
   const id = uid(); const data = agora();
-  return { versao: 1, perfilAtivo: id, ultimaCombinacao: { ...dados.modificadores.padrao }, perfis: [{ id, nome: 'Meu primeiro projeto', criadoEm: data, atualizadoEm: data, ultimaCombinacao: { ...dados.modificadores.padrao }, combinacoes: [] }] };
+  return { versao: 1, perfilAtivo: id, ultimaCombinacao: estadoPadrao(dados), perfis: [{ id, nome: 'Meu primeiro projeto', criadoEm: data, atualizadoEm: data, ultimaCombinacao: estadoPadrao(dados), combinacoes: [] }] };
 }
 export function validarCombinacao(c, dados) {
   assert(c && typeof c === 'object', 'Combinação inválida.');

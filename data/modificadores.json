@@ -10,7 +10,8 @@
     "sombra": "estilo",
     "dispositivo": "desktop",
     "tela": "layouts",
-    "tamanhoPrompt": "completo-css"
+    "tamanhoPrompt": "completo-css",
+    "pwa": false
   },
   "tipografias": [
     {

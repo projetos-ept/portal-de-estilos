@@ -1,5 +1,5 @@
 /* Catálogos locais são a única fonte de opções, textos e tokens. */
-const arquivos = ['estilos', 'paletas', 'layouts', 'componentes', 'modificadores', 'prompt-modelos'];
+const arquivos = ['estilos', 'paletas', 'layouts', 'componentes', 'modificadores', 'prompt-modelos', 'contextos'];
 const idValido = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const camposCatalogo = { estilo: 'estilos', layout: 'layouts', paleta: 'paletas', tipografia: 'tipografias', raio: 'raios', densidade: 'densidades', sombra: 'sombras', modo: 'modos', dispositivo: 'dispositivos', tamanhoPrompt: 'modelos' };
 export function assert(condicao, mensagem) { if (!condicao) throw new Error(mensagem); }
@@ -57,14 +57,54 @@ export function validarDados(d) {
   lista(d['prompt-modelos']?.modelos, 'prompt-modelos.modelos');
   texto(d['prompt-modelos'].restricoes, 'prompt-modelos.restricoes');
   texto(d['prompt-modelos'].cssReferencia, 'prompt-modelos.cssReferencia');
-  const chavesModelo = new Set(['resumo','estilo','layout','tipografia','cores','tokens','componentes','cssComponentes','restricoes','estiloResumido','componentesResumidos','tipografiaResumida']);
+  texto(d['prompt-modelos'].adaptacao, 'prompt-modelos.adaptacao');
+  for (const k of ['rotulo','ajuda','prompt']) texto(d['prompt-modelos'].pwa?.[k], `prompt-modelos.pwa.${k}`);
+  const chavesModelo = new Set(['adaptacao','resumo','estilo','layout','tipografia','cores','tokens','componentes','cssComponentes','restricoes','estiloResumido','componentesResumidos','tipografiaResumida']);
   for (const m of d['prompt-modelos'].modelos) {
     texto(m.template, `prompt-modelos.${m.id}.template`);
     for (const match of m.template.matchAll(/\{([^{}]+)\}/g)) assert(chavesModelo.has(match[1]), `Modelo ${m.id}: campo desconhecido {${match[1]}}.`);
   }
   for (const campo of Object.keys(camposCatalogo)) assert(catalogo(d, campo).some(i => i.id === d.modificadores.padrao?.[campo]), `modificadores.padrao.${campo}: opção padrão inválida.`);
   assert(['layouts','catalogo'].includes(d.modificadores.padrao.tela), 'Tela padrão inválida.');
+  assert(d.modificadores.padrao.pwa === false, 'A opção PWA deve ser desligada por padrão.');
+  validarCatalogoContextos(d);
   return d;
+}
+function validarCatalogoContextos(d) {
+  const c = d.contextos;
+  assert(c?.versao === 1, 'contextos.json: versão inválida.');
+  lista(c.segmentos, 'contextos.segmentos'); lista(c.visoes, 'contextos.visoes');
+  assert(c.segmentos.some(s=>s.id==='generico'&&s.aplicacoes.length===0), 'Contexto genérico ausente.');
+  assert(c.padrao?.segmento==='generico'&&c.padrao.aplicacao==='generico'&&c.padrao.visao==='generico'&&c.padrao.contextoNome===''&&c.padrao.contextoDescricao==='', 'Contexto padrão inválido.');
+  const strings = (v,k) => {assert(Array.isArray(v)&&v.length>0,k+': lista vazia.');v.forEach(x=>texto(x,k));};
+  for(const v of c.visoes) {
+    texto(v.descricao,'visao.descricao');
+    if(v.id!=='generico')texto(v.prompt,'visao.prompt');
+    assert(Array.isArray(v.foco),'visao.foco: lista inválida.');
+    v.foco.forEach(id=>assert(d.componentes.some(x=>x.id===id),'Componente de visão desconhecido: '+id));
+  }
+  for(const s of c.segmentos) {
+    texto(s.descricao,'segmento.descricao');
+    if(s.id==='generico')continue;
+    lista(s.aplicacoes,'segmento.aplicacoes');
+    for(const a of s.aplicacoes) {
+      for(const k of ['descricao','prompt','entidade','colecao','acao'])texto(a[k],a.id+'.'+k);
+      for(const k of ['visoes','navegacao','colunas','estados','acoes','destaques','fluxo'])strings(a[k],a.id+'.'+k);
+      a.visoes.forEach(id=>assert(id!=='generico'&&c.visoes.some(v=>v.id===id),'Visão desconhecida: '+id));
+      a.destaques.forEach(id=>assert(d.componentes.some(x=>x.id===id),'Componente desconhecido: '+id));
+      assert(Array.isArray(a.registros)&&a.registros.length>0,'Registros ausentes.');
+      a.registros.forEach(r=>{strings(r,'registro');assert(r.length===a.colunas.length,'Colunas e registro incompatíveis.');});
+      assert(Array.isArray(a.indicadores)&&a.indicadores.length>=3,'Indicadores ausentes.');
+      a.indicadores.forEach(i=>{for(const k of ['nome','valor','nota'])texto(i[k],'indicador.'+k);});
+      assert(Array.isArray(a.campos)&&a.campos.length>0&&Array.isArray(a.filtros),'Campos ou filtros inválidos.');
+      a.campos.forEach(f=>{texto(f.nome,'campo.nome');assert(['texto','area','select','especial'].includes(f.tipo),'Tipo de campo desconhecido.');if(f.tipo==='select')strings(f.opcoes,'campo.opcoes');});
+      a.filtros.forEach(f=>{texto(f.nome,'filtro.nome');assert(a.colunas.includes(f.nome),'Filtro sem coluna correspondente.');strings(f.opcoes,'filtro.opcoes');});
+      if(a.tiposQuestao)strings(a.tiposQuestao,'tiposQuestao');
+    }
+  }
+  texto(c.modeloPrompt,'contextos.modeloPrompt');
+  const chaves = ['segmento','aplicacao','visao','descricao','regras','regrasVisao','navegacao','indicadores','campos','colunas','filtros','estados','acoes','componentes'];
+  for(const m of c.modeloPrompt.matchAll(/\{([^{}]+)\}/g))assert(chaves.includes(m[1]),'Campo de contexto desconhecido: '+m[1]);
 }
 export async function carregarDados() {
   const entradas = await Promise.all(arquivos.map(async nome => {

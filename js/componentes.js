@@ -22,9 +22,11 @@ function renderCalendario(cal,offset=0) {
   $('[data-calendar-event]',cal).textContent='Selecione um dia para consultar a agenda.';
 }
 function tabelaContexto(el) { return el.closest('.demo-layout,.catalog-grid') || $('#preview-root'); }
-function atualizarTabelas(contexto,delta=0) {
+export function atualizarTabelas(contexto,delta=0) {
   const query=(contexto.dataset.query||'').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
-  const linhas=$$('[data-project-row]',contexto); const filtradas=linhas.filter(r=>r.textContent.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase().includes(query));
+  const filtros=$$('[data-context-filter]',contexto).filter(f=>f.value);
+  const linhas=$$('[data-project-row]',contexto); const filtradas=linhas.filter(r=>r.textContent.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase().includes(query)&&filtros.every(f=>$(`[data-context-cell="${f.dataset.contextFilter}"]`,r)?.textContent===f.value));
+  $$('[data-context-empty]',contexto).forEach(el=>el.hidden=filtradas.length>0);
   const total=Math.max(1,Math.ceil(filtradas.length/3)); const pagina=Math.max(0,Math.min(total-1,Number(contexto.dataset.page||0)+delta)); contexto.dataset.page=pagina;
   linhas.forEach(r=>{const i=filtradas.indexOf(r);r.hidden=i<0||Math.floor(i/3)!==pagina;});
   $$('[data-page-status]',contexto).forEach(n=>n.textContent=`Página ${pagina+1} de ${total} · ${filtradas.length} itens`);

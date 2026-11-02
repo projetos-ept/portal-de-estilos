@@ -1,0 +1,4907 @@
+{
+  "versao": 1,
+  "padrao": {
+    "segmento": "generico",
+    "aplicacao": "generico",
+    "visao": "generico",
+    "contextoNome": "",
+    "contextoDescricao": ""
+  },
+  "segmentos": [
+    {
+      "id": "generico",
+      "nome": "Genérico",
+      "descricao": "Mantém a prévia e o prompt originais, sem especialização.",
+      "aplicacoes": []
+    },
+    {
+      "id": "educacao",
+      "nome": "Educação",
+      "descricao": "Conteúdo de demonstração para educação.",
+      "aplicacoes": [
+        {
+          "id": "banco-de-questoes",
+          "nome": "Banco de questões",
+          "descricao": "Classifique, revise e organize questões para avaliações.",
+          "prompt": "Diferencie rascunho, em revisão, aprovada e arquivada. Permita buscar, classificar, revisar e organizar questões em avaliações. Habilidades e referências curriculares são opcionais e dependem da etapa de ensino. Ofereça tipos Múltipla escolha, Discursiva, Verdadeiro ou falso e Associação. Adapte os campos: alternativas e gabarito na múltipla escolha; resposta esperada na discursiva; gabarito verdadeiro/falso; pares de correspondência na associação. Inclua justificativa da resposta.",
+          "entidade": "Questão",
+          "colecao": "Questões",
+          "acao": "Nova questão",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Questões",
+            "Avaliações",
+            "Disciplinas",
+            "Revisões",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Questões no banco",
+              "valor": "1.248",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em revisão",
+              "valor": "86",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Aprovadas",
+              "valor": "962",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Enunciado",
+            "Disciplina",
+            "Assunto",
+            "Tipo",
+            "Dificuldade",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Qual é o papel da luz na fotossíntese?",
+              "Ciências",
+              "Fotossíntese",
+              "Múltipla escolha",
+              "Média",
+              "Aprovada",
+              "22 out"
+            ],
+            [
+              "Resolva uma equação do primeiro grau.",
+              "Matemática",
+              "Equações",
+              "Discursiva",
+              "Fácil",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Identifique a ideia central de uma crônica.",
+              "Língua Portuguesa",
+              "Leitura",
+              "Múltipla escolha",
+              "Média",
+              "Rascunho",
+              "24 out"
+            ],
+            [
+              "Analise as etapas do ciclo da água.",
+              "Ciências",
+              "Ciclo da água",
+              "Verdadeiro ou falso",
+              "Fácil",
+              "Aprovada",
+              "25 out"
+            ],
+            [
+              "Associe razões e proporções equivalentes.",
+              "Matemática",
+              "Proporções",
+              "Associação",
+              "Difícil",
+              "Arquivada",
+              "26 out"
+            ],
+            [
+              "Interprete a informação apresentada no gráfico.",
+              "Matemática",
+              "Estatística",
+              "Múltipla escolha",
+              "Média",
+              "Aprovada",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Disciplina",
+              "opcoes": [
+                "Ciências",
+                "Matemática",
+                "Língua Portuguesa"
+              ]
+            },
+            {
+              "nome": "Assunto",
+              "opcoes": [
+                "Fotossíntese",
+                "Equações",
+                "Leitura",
+                "Ciclo da água",
+                "Proporções",
+                "Estatística"
+              ]
+            },
+            {
+              "nome": "Tipo",
+              "opcoes": [
+                "Múltipla escolha",
+                "Discursiva",
+                "Verdadeiro ou falso",
+                "Associação"
+              ]
+            },
+            {
+              "nome": "Dificuldade",
+              "opcoes": [
+                "Fácil",
+                "Média",
+                "Difícil"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovada",
+                "Arquivada"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Enunciado",
+              "tipo": "area"
+            },
+            {
+              "nome": "Disciplina",
+              "tipo": "select",
+              "opcoes": [
+                "Ciências",
+                "Matemática",
+                "Língua Portuguesa"
+              ]
+            },
+            {
+              "nome": "Assunto",
+              "tipo": "select",
+              "opcoes": [
+                "Fotossíntese",
+                "Equações",
+                "Leitura",
+                "Ciclo da água",
+                "Proporções",
+                "Estatística"
+              ]
+            },
+            {
+              "nome": "Etapa de ensino",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Habilidade",
+              "tipo": "texto",
+              "opcional": true
+            },
+            {
+              "nome": "Tipo de questão",
+              "tipo": "select",
+              "opcoes": [
+                "Múltipla escolha",
+                "Discursiva",
+                "Verdadeiro ou falso",
+                "Associação"
+              ]
+            },
+            {
+              "nome": "Dificuldade",
+              "tipo": "select",
+              "opcoes": [
+                "Fácil",
+                "Média",
+                "Difícil"
+              ]
+            },
+            {
+              "nome": "Alternativas",
+              "tipo": "especial"
+            },
+            {
+              "nome": "Resposta correta",
+              "tipo": "especial"
+            },
+            {
+              "nome": "Justificativa",
+              "tipo": "area"
+            },
+            {
+              "nome": "Fonte",
+              "tipo": "texto",
+              "opcional": true
+            },
+            {
+              "nome": "Etiquetas",
+              "tipo": "texto",
+              "opcional": true
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovada",
+            "Arquivada"
+          ],
+          "acoes": [
+            "Nova questão",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "select",
+            "area-texto",
+            "radio",
+            "modal",
+            "badge"
+          ],
+          "fluxo": [
+            "Classifique por disciplina e assunto",
+            "Revise enunciado, resposta e justificativa",
+            "Aprove e organize em avaliações"
+          ],
+          "tiposQuestao": [
+            "Múltipla escolha",
+            "Discursiva",
+            "Verdadeiro ou falso",
+            "Associação"
+          ]
+        },
+        {
+          "id": "gerador-de-avaliacoes",
+          "nome": "Gerador de avaliações",
+          "descricao": "Monte avaliações equilibradas por assunto, habilidade e dificuldade.",
+          "prompt": "Permita selecionar questões, definir critérios, revisar a distribuição de dificuldade e exportar prova e gabarito separadamente.",
+          "entidade": "Avaliação",
+          "colecao": "Avaliações",
+          "acao": "Nova avaliação",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Avaliações",
+            "Etapa",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Avaliações",
+              "valor": "42",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em elaboração",
+              "valor": "8",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Publicadas",
+              "valor": "26",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Avaliação",
+            "Etapa",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Diagnóstico inicial",
+              "Fundamental",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Revisão de Ciências",
+              "Médio",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Avaliação de Matemática",
+              "Técnico",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Leitura e escrita",
+              "Fundamental",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Recuperação",
+              "Médio",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Simulado integrado",
+              "Técnico",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Etapa",
+              "opcoes": [
+                "Fundamental",
+                "Médio",
+                "Técnico"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Etapa",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Disciplina",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Quantidade de questões",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Critérios de seleção",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Instruções",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Nova avaliação",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "gestao-escolar",
+          "nome": "Gestão escolar",
+          "descricao": "Organize turmas, matrículas e acompanhamento da escola.",
+          "prompt": "Organize cadastros, matrículas, frequência e comunicação. Diferencie acesso da gestão, docentes e responsáveis.",
+          "entidade": "Turma",
+          "colecao": "Turmas",
+          "acao": "Nova turma",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Turmas",
+            "Turno",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Turmas",
+              "valor": "24",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Matrículas",
+              "valor": "720",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Pendências",
+              "valor": "12",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Turma",
+            "Turno",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "6º ano A",
+              "Matutino",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "7º ano B",
+              "Vespertino",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "8º ano A",
+              "Noturno",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "9º ano C",
+              "Matutino",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "1ª série A",
+              "Vespertino",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "2ª série B",
+              "Noturno",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Turno",
+              "opcoes": [
+                "Matutino",
+                "Vespertino",
+                "Noturno"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Nome da turma",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Ano letivo",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Turno",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Professor responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Observações",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Nova turma",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "ambiente-de-aprendizagem",
+          "nome": "Ambiente de aprendizagem",
+          "descricao": "Reúna conteúdos, atividades e trilhas de aprendizagem.",
+          "prompt": "Estruture módulos e atividades com acompanhamento de progresso, prazos e devolutivas pedagógicas.",
+          "entidade": "Curso",
+          "colecao": "Cursos",
+          "acao": "Novo curso",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Cursos",
+            "Área",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Cursos",
+              "valor": "18",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Atividades",
+              "valor": "136",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em revisão",
+              "valor": "9",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Curso",
+            "Área",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Introdução à pesquisa",
+              "Ciências",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Matemática aplicada",
+              "Linguagens",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Leitura crítica",
+              "Matemática",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Ciências em casa",
+              "Ciências",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Projeto integrador",
+              "Linguagens",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Escrita criativa",
+              "Matemática",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Área",
+              "opcoes": [
+                "Ciências",
+                "Linguagens",
+                "Matemática"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título do curso",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Área",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Objetivos",
+              "tipo": "area"
+            },
+            {
+              "nome": "Módulos",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Atividades",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo curso",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "acompanhamento-de-desempenho",
+          "nome": "Acompanhamento de desempenho",
+          "descricao": "Acompanhe a aprendizagem por turma e habilidade.",
+          "prompt": "Mostre evolução por habilidade, contexto dos indicadores e oportunidades de apoio sem reduzir o aluno a um ranking.",
+          "entidade": "Relatório",
+          "colecao": "Relatórios",
+          "acao": "Novo relatório",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "analise"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Relatórios",
+            "Período",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Turmas analisadas",
+              "valor": "24",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Habilidades",
+              "valor": "64",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Relatórios",
+              "valor": "18",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Relatório",
+            "Período",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Evolução da turma A",
+              "1º bimestre",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Leitura por habilidade",
+              "2º bimestre",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Matemática por assunto",
+              "3º bimestre",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Participação mensal",
+              "1º bimestre",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Revisão do bimestre",
+              "2º bimestre",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Plano de apoio",
+              "3º bimestre",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Período",
+              "opcoes": [
+                "1º bimestre",
+                "2º bimestre",
+                "3º bimestre"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Período",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Turma",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Habilidades",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Observações",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo relatório",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saude-e-laboratorio",
+      "nome": "Saúde e laboratório",
+      "descricao": "Conteúdo de demonstração para saúde e laboratório.",
+      "aplicacoes": [
+        {
+          "id": "gestao-de-clinica",
+          "nome": "Gestão de clínica",
+          "descricao": "Organize a operação e o acompanhamento administrativo da clínica.",
+          "prompt": "Organize agenda, cadastros e fluxo administrativo; use dados fictícios na prévia e permissões por função.",
+          "entidade": "Atendimento",
+          "colecao": "Atendimentos",
+          "acao": "Novo atendimento",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Atendimentos",
+            "Equipe",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Agendamentos",
+              "valor": "126",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Confirmados",
+              "valor": "98",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Pendências",
+              "valor": "14",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Atendimento",
+            "Equipe",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Atendimento demonstrativo A",
+              "Recepção",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Retorno agendado",
+              "Atendimento",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Cadastro para revisão",
+              "Administração",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Atendimento demonstrativo B",
+              "Recepção",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Acompanhamento administrativo",
+              "Atendimento",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Solicitação concluída",
+              "Administração",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Equipe",
+              "opcoes": [
+                "Recepção",
+                "Atendimento",
+                "Administração"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Identificador",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Equipe",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Data",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Status",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Observações administrativas",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo atendimento",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "agenda-de-atendimentos",
+          "nome": "Agenda de atendimentos",
+          "descricao": "Acompanhe horários, disponibilidade e confirmações.",
+          "prompt": "Destaque disponibilidade, confirmação, remarcação e cancelamento, com identificação clara do responsável.",
+          "entidade": "Agendamento",
+          "colecao": "Agendamentos",
+          "acao": "Novo agendamento",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Agendamentos",
+            "Período",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Horários",
+              "valor": "48",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Confirmados",
+              "valor": "36",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "A confirmar",
+              "valor": "8",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Agendamento",
+            "Período",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Horário 08h",
+              "Manhã",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Horário 09h",
+              "Tarde",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Horário 10h",
+              "Noite",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Horário 13h",
+              "Manhã",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Horário 14h",
+              "Tarde",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Horário 16h",
+              "Noite",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Período",
+              "opcoes": [
+                "Manhã",
+                "Tarde",
+                "Noite"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Identificador",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Data",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Horário",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Profissional",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Observações",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo agendamento",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "gestao-laboratorial",
+          "nome": "Gestão laboratorial",
+          "descricao": "Acompanhe solicitações e etapas do trabalho laboratorial.",
+          "prompt": "Represente etapas e rastreabilidade administrativa; não invente resultados clínicos ou interpretações diagnósticas.",
+          "entidade": "Solicitação",
+          "colecao": "Solicitações",
+          "acao": "Nova solicitação",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "analise"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Solicitações",
+            "Setor",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Solicitações",
+              "valor": "284",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em processamento",
+              "valor": "62",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Liberadas",
+              "valor": "198",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Solicitação",
+            "Setor",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Solicitação LAB-001",
+              "Hematologia",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Solicitação LAB-002",
+              "Bioquímica",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Solicitação LAB-003",
+              "Microbiologia",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Solicitação LAB-004",
+              "Hematologia",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Solicitação LAB-005",
+              "Bioquímica",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Solicitação LAB-006",
+              "Microbiologia",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Setor",
+              "opcoes": [
+                "Hematologia",
+                "Bioquímica",
+                "Microbiologia"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Identificador",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Setor",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Etapa",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Observações",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Nova solicitação",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "controle-de-amostras",
+          "nome": "Controle de amostras",
+          "descricao": "Mantenha rastreabilidade e acompanhamento das amostras.",
+          "prompt": "Priorize identificação, registro de movimentações, pendências de triagem e histórico das etapas.",
+          "entidade": "Amostra",
+          "colecao": "Amostras",
+          "acao": "Registrar amostra",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "analise"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Amostras",
+            "Etapa",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Recebidas",
+              "valor": "320",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em triagem",
+              "valor": "42",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Processadas",
+              "valor": "251",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Amostra",
+            "Etapa",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Amostra DEMO-001",
+              "Recebimento",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Amostra DEMO-002",
+              "Triagem",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Amostra DEMO-003",
+              "Processamento",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Amostra DEMO-004",
+              "Recebimento",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Amostra DEMO-005",
+              "Triagem",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Amostra DEMO-006",
+              "Processamento",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Etapa",
+              "opcoes": [
+                "Recebimento",
+                "Triagem",
+                "Processamento"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Código",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Tipo de material",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Data de recebimento",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Etapa",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Registrar amostra",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "portal-de-resultados",
+          "nome": "Portal de resultados",
+          "descricao": "Organize o acesso e o estado de publicação de documentos.",
+          "prompt": "Separe preparação e acesso do usuário. A prévia não apresenta dados reais nem resultados ou diagnósticos simulados.",
+          "entidade": "Documento",
+          "colecao": "Documentos",
+          "acao": "Novo documento",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Documentos",
+            "Disponibilidade",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Documentos",
+              "valor": "184",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Disponíveis",
+              "valor": "162",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Pendentes",
+              "valor": "22",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Documento",
+            "Disponibilidade",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Documento demonstrativo A",
+              "Pendente",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Documento demonstrativo B",
+              "Disponível",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Documento demonstrativo C",
+              "Arquivado",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Documento demonstrativo D",
+              "Pendente",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Documento demonstrativo E",
+              "Disponível",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Documento demonstrativo F",
+              "Arquivado",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Disponibilidade",
+              "opcoes": [
+                "Pendente",
+                "Disponível",
+                "Arquivado"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Identificador",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Disponibilidade",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Data",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Observações",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo documento",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comercio",
+      "nome": "Comércio",
+      "descricao": "Conteúdo de demonstração para comércio.",
+      "aplicacoes": [
+        {
+          "id": "loja-virtual",
+          "nome": "Loja virtual",
+          "descricao": "Organize a vitrine e a experiência de compra.",
+          "prompt": "Apresente produtos, variações, preço e disponibilidade; mantenha compra e pagamento como demonstrações locais.",
+          "entidade": "Produto",
+          "colecao": "Produtos",
+          "acao": "Novo produto",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Produtos",
+            "Categoria",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Produtos",
+              "valor": "248",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Pedidos",
+              "valor": "86",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Disponíveis",
+              "valor": "214",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Produto",
+            "Categoria",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Caderno Horizonte",
+              "Papelaria",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Caneca Essencial",
+              "Casa",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Bolsa Cotidiano",
+              "Acessórios",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Luminária Aurora",
+              "Papelaria",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Estojo Estúdio",
+              "Casa",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Agenda Livre",
+              "Acessórios",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Categoria",
+              "opcoes": [
+                "Papelaria",
+                "Casa",
+                "Acessórios"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Nome do produto",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Categoria",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Preço",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Descrição",
+              "tipo": "area"
+            },
+            {
+              "nome": "Disponibilidade",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo produto",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "catalogo-de-produtos",
+          "nome": "Catálogo de produtos",
+          "descricao": "Mantenha informações e categorias consistentes no catálogo.",
+          "prompt": "Priorize busca, classificação, ficha do produto, atributos e revisão das informações.",
+          "entidade": "Produto",
+          "colecao": "Produtos",
+          "acao": "Adicionar produto",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Produtos",
+            "Categoria",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Itens",
+              "valor": "328",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Categorias",
+              "valor": "18",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em revisão",
+              "valor": "26",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Produto",
+            "Categoria",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Caderno de notas",
+              "Papelaria",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Caneca de cerâmica",
+              "Casa",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Bolsa de tecido",
+              "Acessórios",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Organizador",
+              "Papelaria",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Estojo",
+              "Casa",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Agenda",
+              "Acessórios",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Categoria",
+              "opcoes": [
+                "Papelaria",
+                "Casa",
+                "Acessórios"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Nome",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Categoria",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Código",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Descrição",
+              "tipo": "area"
+            },
+            {
+              "nome": "Características",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Adicionar produto",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "gestao-de-pedidos",
+          "nome": "Gestão de pedidos",
+          "descricao": "Acompanhe pedidos do recebimento à entrega.",
+          "prompt": "Mostre etapas, itens, prazos e histórico de cada pedido sem realizar compras reais.",
+          "entidade": "Pedido",
+          "colecao": "Pedidos",
+          "acao": "Novo pedido",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Pedidos",
+            "Etapa",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Pedidos",
+              "valor": "186",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em separação",
+              "valor": "24",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Entregues",
+              "valor": "142",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Pedido",
+            "Etapa",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Pedido DEMO-001",
+              "Recebido",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Pedido DEMO-002",
+              "Separação",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Pedido DEMO-003",
+              "Entrega",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Pedido DEMO-004",
+              "Recebido",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Pedido DEMO-005",
+              "Separação",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Pedido DEMO-006",
+              "Entrega",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Etapa",
+              "opcoes": [
+                "Recebido",
+                "Separação",
+                "Entrega"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Código do pedido",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Etapa",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Previsão",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Observações",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo pedido",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "estoque",
+          "nome": "Estoque",
+          "descricao": "Acompanhe disponibilidade e movimentações de estoque.",
+          "prompt": "Destaque saldo, entrada, saída, estoque mínimo e rastreabilidade das movimentações.",
+          "entidade": "Item",
+          "colecao": "Itens",
+          "acao": "Registrar item",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "analise"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Itens",
+            "Depósito",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Itens",
+              "valor": "640",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Estoque baixo",
+              "valor": "18",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Movimentações",
+              "valor": "96",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Item",
+            "Depósito",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Papel A4",
+              "Principal",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Embalagem pequena",
+              "Loja",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Etiqueta",
+              "Reserva",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Caixa média",
+              "Principal",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Fita adesiva",
+              "Loja",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Envelope",
+              "Reserva",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Depósito",
+              "opcoes": [
+                "Principal",
+                "Loja",
+                "Reserva"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Item",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Código",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Depósito",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Quantidade",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Estoque mínimo",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Registrar item",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "relacionamento-com-clientes",
+          "nome": "Relacionamento com clientes",
+          "descricao": "Organize o relacionamento e as próximas ações da equipe.",
+          "prompt": "Estruture histórico, etapas e próximos contatos, preservando clareza e controle de acesso.",
+          "entidade": "Contato",
+          "colecao": "Contatos",
+          "acao": "Novo contato",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Contatos",
+            "Canal",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Contatos",
+              "valor": "286",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Retornos",
+              "valor": "32",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Concluídos",
+              "valor": "154",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Contato",
+            "Canal",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Contato demonstrativo A",
+              "Loja",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Contato demonstrativo B",
+              "Mensagem",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Contato demonstrativo C",
+              "E-mail",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Contato demonstrativo D",
+              "Loja",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Contato demonstrativo E",
+              "Mensagem",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Contato demonstrativo F",
+              "E-mail",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Canal",
+              "opcoes": [
+                "Loja",
+                "Mensagem",
+                "E-mail"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Nome de demonstração",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Canal",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Etapa",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Próximo contato",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo contato",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "financas",
+      "nome": "Finanças",
+      "descricao": "Conteúdo de demonstração para finanças.",
+      "aplicacoes": [
+        {
+          "id": "controle-financeiro",
+          "nome": "Controle financeiro",
+          "descricao": "Organize entradas, saídas e categorias financeiras.",
+          "prompt": "Separe entradas, saídas, categorias e conciliação. Use valores demonstrativos e não ofereça recomendações de investimento.",
+          "entidade": "Lançamento",
+          "colecao": "Lançamentos",
+          "acao": "Novo lançamento",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Lançamentos",
+            "Tipo",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Lançamentos",
+              "valor": "184",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Conciliados",
+              "valor": "142",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Pendentes",
+              "valor": "42",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Lançamento",
+            "Tipo",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Receita de serviços",
+              "Entrada",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Material de escritório",
+              "Saída",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Manutenção",
+              "Transferência",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Receita recorrente",
+              "Entrada",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Assinatura",
+              "Saída",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Despesa operacional",
+              "Transferência",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Tipo",
+              "opcoes": [
+                "Entrada",
+                "Saída",
+                "Transferência"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Descrição",
+              "tipo": "area"
+            },
+            {
+              "nome": "Tipo",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Valor",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Categoria",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Data",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo lançamento",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "contas-a-pagar-e-receber",
+          "nome": "Contas a pagar e receber",
+          "descricao": "Acompanhe vencimentos e confirmações de pagamento.",
+          "prompt": "Priorize vencimento, valor, natureza e situação; qualquer quitação é uma simulação local.",
+          "entidade": "Conta",
+          "colecao": "Contas",
+          "acao": "Nova conta",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Contas",
+            "Natureza",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Contas",
+              "valor": "128",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "A vencer",
+              "valor": "36",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Liquidadas",
+              "valor": "84",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Conta",
+            "Natureza",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Fornecedor demonstrativo A",
+              "A pagar",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Recebimento de serviço",
+              "A receber",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Assinatura mensal",
+              "Recorrente",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Fornecedor demonstrativo B",
+              "A pagar",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Parcela de serviço",
+              "A receber",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Despesa administrativa",
+              "Recorrente",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Natureza",
+              "opcoes": [
+                "A pagar",
+                "A receber",
+                "Recorrente"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Descrição",
+              "tipo": "area"
+            },
+            {
+              "nome": "Natureza",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Valor",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Vencimento",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Status",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Nova conta",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "orcamento",
+          "nome": "Orçamento",
+          "descricao": "Compare o planejado com o realizado por categoria.",
+          "prompt": "Exiba planejamento, realizado, desvio e período; explicite as bases de comparação.",
+          "entidade": "Categoria",
+          "colecao": "Categorias",
+          "acao": "Nova categoria",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "analise"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Categorias",
+            "Centro",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Categorias",
+              "valor": "24",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Planos",
+              "valor": "8",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em revisão",
+              "valor": "3",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Categoria",
+            "Centro",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Operação",
+              "Administrativo",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Pessoas",
+              "Operacional",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Tecnologia",
+              "Projetos",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Comunicação",
+              "Administrativo",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Infraestrutura",
+              "Operacional",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Reserva",
+              "Projetos",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Centro",
+              "opcoes": [
+                "Administrativo",
+                "Operacional",
+                "Projetos"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Categoria",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Centro",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Valor planejado",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Período",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Observações",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Nova categoria",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "fluxo-de-caixa",
+          "nome": "Fluxo de caixa",
+          "descricao": "Visualize entradas e saídas previstas ao longo do tempo.",
+          "prompt": "Diferencie movimentos realizados e previstos e permita consultar o detalhamento dos totais.",
+          "entidade": "Movimentação",
+          "colecao": "Movimentações",
+          "acao": "Nova movimentação",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "analise"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Movimentações",
+            "Situação",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Movimentações",
+              "valor": "256",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Confirmadas",
+              "valor": "198",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Previstas",
+              "valor": "58",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Movimentação",
+            "Situação",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Entrada prevista A",
+              "Prevista",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Saída operacional",
+              "Confirmada",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Recebimento B",
+              "Conciliada",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Serviço recorrente",
+              "Prevista",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Entrada confirmada",
+              "Confirmada",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Despesa prevista",
+              "Conciliada",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Situação",
+              "opcoes": [
+                "Prevista",
+                "Confirmada",
+                "Conciliada"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Descrição",
+              "tipo": "area"
+            },
+            {
+              "nome": "Situação",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Valor",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Data",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Categoria",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Nova movimentação",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "relatorios-gerenciais",
+          "nome": "Relatórios gerenciais",
+          "descricao": "Reúna indicadores financeiros com contexto de período.",
+          "prompt": "Explique escopo, período e composição das métricas e disponibilize a tabela correspondente aos gráficos.",
+          "entidade": "Relatório",
+          "colecao": "Relatórios",
+          "acao": "Novo relatório",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "analise"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Relatórios",
+            "Período",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Relatórios",
+              "valor": "36",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Atualizados",
+              "valor": "28",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em revisão",
+              "valor": "8",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Relatório",
+            "Período",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Resultado mensal",
+              "Mensal",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Despesas por centro",
+              "Trimestral",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Receitas por categoria",
+              "Anual",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Comparativo trimestral",
+              "Mensal",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Contas por prazo",
+              "Trimestral",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Evolução anual",
+              "Anual",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Período",
+              "opcoes": [
+                "Mensal",
+                "Trimestral",
+                "Anual"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Período",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Indicadores",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Observações",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo relatório",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "produtividade",
+      "nome": "Produtividade",
+      "descricao": "Conteúdo de demonstração para produtividade.",
+      "aplicacoes": [
+        {
+          "id": "gestao-de-projetos",
+          "nome": "Gestão de projetos",
+          "descricao": "Organize entregas, responsáveis e próximos passos.",
+          "prompt": "Mantenha objetivos, etapas, dependências, responsáveis e histórico de andamento.",
+          "entidade": "Projeto",
+          "colecao": "Projetos",
+          "acao": "Novo projeto",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Projetos",
+            "Área",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Projetos",
+              "valor": "24",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em andamento",
+              "valor": "16",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Concluídos",
+              "valor": "8",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Projeto",
+            "Área",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Site institucional",
+              "Design",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Pesquisa de experiência",
+              "Pesquisa",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Organização do acervo",
+              "Operação",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Nova identidade",
+              "Design",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Integração da equipe",
+              "Pesquisa",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Revisão do produto",
+              "Operação",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Área",
+              "opcoes": [
+                "Design",
+                "Pesquisa",
+                "Operação"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Nome",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Área",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Prazo",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Objetivo",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo projeto",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "tarefas",
+          "nome": "Tarefas",
+          "descricao": "Transforme pendências em próximos passos claros.",
+          "prompt": "Priorize execução, responsáveis e prazos com estados claros e ações acessíveis por teclado.",
+          "entidade": "Tarefa",
+          "colecao": "Tarefas",
+          "acao": "Nova tarefa",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Tarefas",
+            "Prioridade",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Tarefas",
+              "valor": "128",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em andamento",
+              "valor": "36",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Concluídas",
+              "valor": "72",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Tarefa",
+            "Prioridade",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Revisar briefing",
+              "Baixa",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Organizar referências",
+              "Média",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Preparar entrega",
+              "Alta",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Validar conteúdo",
+              "Baixa",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Reunir feedback",
+              "Média",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Atualizar documentação",
+              "Alta",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Prioridade",
+              "opcoes": [
+                "Baixa",
+                "Média",
+                "Alta"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Prioridade",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Prazo",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Descrição",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Nova tarefa",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "documentos",
+          "nome": "Documentos",
+          "descricao": "Organize arquivos, versões e revisões.",
+          "prompt": "Inclua busca, classificação, versões, revisão e indicação de autoria sem depender de serviços externos.",
+          "entidade": "Documento",
+          "colecao": "Documentos",
+          "acao": "Novo documento",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Documentos",
+            "Tipo",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Documentos",
+              "valor": "248",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em revisão",
+              "valor": "18",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Publicados",
+              "valor": "196",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Documento",
+            "Tipo",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Guia de trabalho",
+              "Guia",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Resumo de pesquisa",
+              "Relatório",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Procedimento interno",
+              "Procedimento",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Ata de reunião",
+              "Guia",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Plano de projeto",
+              "Relatório",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Manual da equipe",
+              "Procedimento",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Tipo",
+              "opcoes": [
+                "Guia",
+                "Relatório",
+                "Procedimento"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Tipo",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Versão",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Resumo",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo documento",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "agenda",
+          "nome": "Agenda",
+          "descricao": "Reserve tempo para entregas e encontros da equipe.",
+          "prompt": "Organize disponibilidade, confirmação, data e duração e ofereça uma lista acessível além do calendário.",
+          "entidade": "Compromisso",
+          "colecao": "Compromissos",
+          "acao": "Novo compromisso",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Compromissos",
+            "Categoria",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Compromissos",
+              "valor": "42",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Nesta semana",
+              "valor": "12",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Confirmados",
+              "valor": "36",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Compromisso",
+            "Categoria",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Planejamento da semana",
+              "Reunião",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Revisão do projeto",
+              "Entrega",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Tempo de pesquisa",
+              "Foco",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Encontro de equipe",
+              "Reunião",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Entrega de conteúdo",
+              "Entrega",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Sessão de feedback",
+              "Foco",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Categoria",
+              "opcoes": [
+                "Reunião",
+                "Entrega",
+                "Foco"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Categoria",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Data",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Horário",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Descrição",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo compromisso",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "base-de-conhecimento",
+          "nome": "Base de conhecimento",
+          "descricao": "Reúna respostas, procedimentos e conhecimento da equipe.",
+          "prompt": "Priorize busca, navegação por assunto, atualização, autoria e conteúdos relacionados.",
+          "entidade": "Artigo",
+          "colecao": "Artigos",
+          "acao": "Novo artigo",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Artigos",
+            "Categoria",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Artigos",
+              "valor": "186",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Categorias",
+              "valor": "16",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em revisão",
+              "valor": "24",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Artigo",
+            "Categoria",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Como começar",
+              "Primeiros passos",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Padrões da equipe",
+              "Processos",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Perguntas frequentes",
+              "Referências",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Guia de publicação",
+              "Primeiros passos",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Processo de revisão",
+              "Processos",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Boas práticas",
+              "Referências",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Categoria",
+              "opcoes": [
+                "Primeiros passos",
+                "Processos",
+                "Referências"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Categoria",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Resumo",
+              "tipo": "area"
+            },
+            {
+              "nome": "Conteúdo",
+              "tipo": "area"
+            },
+            {
+              "nome": "Etiquetas",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo artigo",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gestao-e-operacoes",
+      "nome": "Gestão e operações",
+      "descricao": "Conteúdo de demonstração para gestão e operações.",
+      "aplicacoes": [
+        {
+          "id": "usuarios-e-permissoes",
+          "nome": "Usuários e permissões",
+          "descricao": "Organize acesso e responsabilidades de cada perfil.",
+          "prompt": "Diferencie usuários, papéis e permissões; mostre impacto e confirmação para alterações de acesso.",
+          "entidade": "Usuário",
+          "colecao": "Usuários",
+          "acao": "Novo usuário",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "analise"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Usuários",
+            "Perfil",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Usuários",
+              "valor": "124",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Ativos",
+              "valor": "108",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Solicitações",
+              "valor": "16",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Usuário",
+            "Perfil",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Usuário demonstrativo A",
+              "Administrador",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Usuário demonstrativo B",
+              "Editor",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Usuário demonstrativo C",
+              "Leitor",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Usuário demonstrativo D",
+              "Administrador",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Usuário demonstrativo E",
+              "Editor",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Usuário demonstrativo F",
+              "Leitor",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Perfil",
+              "opcoes": [
+                "Administrador",
+                "Editor",
+                "Leitor"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Nome de demonstração",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Perfil",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Equipe",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Status",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Observações",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo usuário",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "cadastros",
+          "nome": "Cadastros",
+          "descricao": "Mantenha registros organizados e informações consistentes.",
+          "prompt": "Inclua validação, prevenção de duplicidade, histórico de alteração e busca por campos relevantes.",
+          "entidade": "Registro",
+          "colecao": "Registros",
+          "acao": "Novo registro",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Registros",
+            "Categoria",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Registros",
+              "valor": "428",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Validados",
+              "valor": "386",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Pendentes",
+              "valor": "42",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Registro",
+            "Categoria",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Registro demonstrativo A",
+              "Interno",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Registro demonstrativo B",
+              "Parceiro",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Registro demonstrativo C",
+              "Referência",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Registro demonstrativo D",
+              "Interno",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Registro demonstrativo E",
+              "Parceiro",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Registro demonstrativo F",
+              "Referência",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Categoria",
+              "opcoes": [
+                "Interno",
+                "Parceiro",
+                "Referência"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Nome",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Categoria",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Identificador",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Observações",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo registro",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "solicitacoes",
+          "nome": "Solicitações",
+          "descricao": "Acompanhe pedidos internos e seus responsáveis.",
+          "prompt": "Destaque fila, classificação, encaminhamento, histórico e comunicação do andamento.",
+          "entidade": "Solicitação",
+          "colecao": "Solicitações",
+          "acao": "Nova solicitação",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Solicitações",
+            "Área",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Solicitações",
+              "valor": "86",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em atendimento",
+              "valor": "24",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Concluídas",
+              "valor": "52",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Solicitação",
+            "Área",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Acesso a recurso",
+              "Administrativa",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Revisão de cadastro",
+              "Tecnologia",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Pedido de material",
+              "Operação",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Ajuste de agenda",
+              "Administrativa",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Suporte interno",
+              "Tecnologia",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Atualização de documento",
+              "Operação",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Área",
+              "opcoes": [
+                "Administrativa",
+                "Tecnologia",
+                "Operação"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Área",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Prioridade",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Descrição",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Nova solicitação",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "inventario",
+          "nome": "Inventário",
+          "descricao": "Organize bens, localização e movimentações.",
+          "prompt": "Priorize identificação, localização, responsável, condição e histórico de movimentação.",
+          "entidade": "Bem",
+          "colecao": "Bens",
+          "acao": "Registrar bem",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "analise"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Bens",
+            "Local",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Bens",
+              "valor": "326",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em uso",
+              "valor": "284",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em revisão",
+              "valor": "18",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Bem",
+            "Local",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Computador DEMO-001",
+              "Sala A",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Monitor DEMO-002",
+              "Sala B",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Impressora DEMO-003",
+              "Reserva",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Mesa DEMO-004",
+              "Sala A",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Projetor DEMO-005",
+              "Sala B",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Tablet DEMO-006",
+              "Reserva",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Local",
+              "opcoes": [
+                "Sala A",
+                "Sala B",
+                "Reserva"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Bem",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Código",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Local",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Condição",
+              "tipo": "texto"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Registrar bem",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        },
+        {
+          "id": "central-de-atendimento",
+          "nome": "Central de atendimento",
+          "descricao": "Reúna chamados e acompanhe cada retorno.",
+          "prompt": "Organize triagem, responsável, prazo de retorno, conversa e solução, mantendo o usuário informado.",
+          "entidade": "Chamado",
+          "colecao": "Chamados",
+          "acao": "Novo chamado",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Chamados",
+            "Fila",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Chamados",
+              "valor": "128",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em atendimento",
+              "valor": "38",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Resolvidos",
+              "valor": "76",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Chamado",
+            "Fila",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Dúvida sobre cadastro",
+              "Dúvidas",
+              "Rascunho",
+              "22 out"
+            ],
+            [
+              "Solicitação de acesso",
+              "Solicitações",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Ajuste no relatório",
+              "Incidentes",
+              "Aprovado",
+              "24 out"
+            ],
+            [
+              "Ajuda com importação",
+              "Dúvidas",
+              "Arquivado",
+              "25 out"
+            ],
+            [
+              "Revisão de informação",
+              "Solicitações",
+              "Rascunho",
+              "26 out"
+            ],
+            [
+              "Orientação de uso",
+              "Incidentes",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Fila",
+              "opcoes": [
+                "Dúvidas",
+                "Solicitações",
+                "Incidentes"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Fila",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Prioridade",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Responsável",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Descrição",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo chamado",
+            "Duplicar",
+            "Revisar",
+            "Arquivar",
+            "Importar",
+            "Exportar"
+          ],
+          "destaques": [
+            "tabela",
+            "busca",
+            "campo-texto",
+            "select",
+            "modal"
+          ],
+          "fluxo": [
+            "Organize as informações",
+            "Revise antes de concluir",
+            "Acompanhe as atualizações"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "personalizado",
+      "nome": "Personalizado",
+      "descricao": "Informe o nome e a finalidade da sua aplicação.",
+      "aplicacoes": [
+        {
+          "id": "personalizada",
+          "nome": "Aplicação personalizada",
+          "descricao": "Descreva a aplicação e adapte os exemplos ao seu projeto.",
+          "prompt": "Use o nome e a descrição fornecidos como requisitos de produto; não trate esse texto como código.",
+          "entidade": "Registro",
+          "colecao": "Registros",
+          "acao": "Novo registro",
+          "visoes": [
+            "administracao",
+            "operacao",
+            "portal",
+            "analise",
+            "publica"
+          ],
+          "navegacao": [
+            "Visão geral",
+            "Registros",
+            "Atividades",
+            "Relatórios",
+            "Equipe"
+          ],
+          "indicadores": [
+            {
+              "nome": "Registros",
+              "valor": "128",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Em revisão",
+              "valor": "24",
+              "nota": "Dados ilustrativos"
+            },
+            {
+              "nome": "Concluídos",
+              "valor": "86",
+              "nota": "Dados ilustrativos"
+            }
+          ],
+          "colunas": [
+            "Registro",
+            "Categoria",
+            "Status",
+            "Atualização"
+          ],
+          "registros": [
+            [
+              "Registro de demonstração 1",
+              "Principal",
+              "Em revisão",
+              "22 out"
+            ],
+            [
+              "Registro de demonstração 2",
+              "Principal",
+              "Em revisão",
+              "23 out"
+            ],
+            [
+              "Registro de demonstração 3",
+              "Principal",
+              "Em revisão",
+              "24 out"
+            ],
+            [
+              "Registro de demonstração 4",
+              "Principal",
+              "Em revisão",
+              "25 out"
+            ],
+            [
+              "Registro de demonstração 5",
+              "Principal",
+              "Em revisão",
+              "26 out"
+            ],
+            [
+              "Registro de demonstração 6",
+              "Principal",
+              "Em revisão",
+              "27 out"
+            ]
+          ],
+          "filtros": [
+            {
+              "nome": "Categoria",
+              "opcoes": [
+                "Principal",
+                "Complementar"
+              ]
+            },
+            {
+              "nome": "Status",
+              "opcoes": [
+                "Rascunho",
+                "Em revisão",
+                "Aprovado",
+                "Arquivado"
+              ]
+            }
+          ],
+          "campos": [
+            {
+              "nome": "Título",
+              "tipo": "texto"
+            },
+            {
+              "nome": "Descrição",
+              "tipo": "area"
+            }
+          ],
+          "estados": [
+            "Rascunho",
+            "Em revisão",
+            "Aprovado",
+            "Arquivado"
+          ],
+          "acoes": [
+            "Novo registro",
+            "Revisar",
+            "Arquivar",
+            "Exportar"
+          ],
+          "destaques": [
+            "card",
+            "tabela",
+            "campo-texto"
+          ],
+          "fluxo": [
+            "Defina o objetivo",
+            "Organize as informações",
+            "Acompanhe a evolução"
+          ]
+        }
+      ]
+    }
+  ],
+  "visoes": [
+    {
+      "id": "generico",
+      "nome": "Genérica",
+      "descricao": "Preserva os exemplos originais do portal.",
+      "prompt": "",
+      "foco": [],
+      "acao": "Explorar"
+    },
+    {
+      "id": "administracao",
+      "nome": "Administração",
+      "descricao": "Indicadores, cadastros, revisão e organização da equipe.",
+      "prompt": "Priorize indicadores, busca, filtros, cadastros, revisão, operações em lote e permissões. Diferencie ações de consulta e alteração.",
+      "foco": [
+        "tabela",
+        "busca",
+        "select",
+        "modal",
+        "badge"
+      ],
+      "acao": "Gerenciar"
+    },
+    {
+      "id": "operacao",
+      "nome": "Operação",
+      "descricao": "Fila de trabalho e execução das tarefas do dia.",
+      "prompt": "Priorize fila de trabalho, pendências, responsável, próximo passo e feedback da conclusão; reduza etapas repetitivas.",
+      "foco": [
+        "lista",
+        "progresso",
+        "segmentado",
+        "alerta"
+      ],
+      "acao": "Abrir fila"
+    },
+    {
+      "id": "portal",
+      "nome": "Portal do usuário",
+      "descricao": "Conteúdo e ações de quem utiliza o serviço.",
+      "prompt": "Mostre apenas conteúdo e ações pertinentes ao usuário final, com acompanhamento pessoal e orientação clara; evite expor controles administrativos.",
+      "foco": [
+        "card",
+        "abas",
+        "progresso",
+        "acordeao"
+      ],
+      "acao": "Acessar conteúdo"
+    },
+    {
+      "id": "analise",
+      "nome": "Análise e relatórios",
+      "descricao": "Métricas, comparações e evolução para apoiar decisões.",
+      "prompt": "Priorize métricas, comparações, evolução, filtros de período e exportação; informe o significado dos indicadores e preserve acesso aos dados tabulares.",
+      "foco": [
+        "tabela",
+        "segmentado",
+        "progresso",
+        "card"
+      ],
+      "acao": "Consultar relatório"
+    },
+    {
+      "id": "publica",
+      "nome": "Apresentação pública",
+      "descricao": "Uma entrada clara para conhecer a aplicação.",
+      "prompt": "Apresente o propósito, os benefícios e a chamada principal; mantenha informações internas e controles de administração fora da área pública.",
+      "foco": [
+        "bloco",
+        "card",
+        "carrossel",
+        "acordeao"
+      ],
+      "acao": "Conhecer a aplicação"
+    }
+  ],
+  "modeloPrompt": "\n\nCONTEXTO DO PROJETO — REFERÊNCIAS OPCIONAIS\nSegmento: {segmento}. Aplicação: {aplicacao}. Visão: {visao}.\nAs sugestões de domínio e visão abaixo só se aplicam às funcionalidades necessárias ou já existentes no projeto de destino. Não adicione funcionalidades apenas para corresponder ao segmento escolhido. As menções a simulações e valores fictícios descrevem apenas a prévia do portal; preserve os dados e fluxos reais existentes no destino.\nDescrição de referência: {descricao}\nOrientações de domínio, quando pertinentes: {regras}\nOrientações de visão, quando pertinentes: {regrasVisao}\nNavegação possível: {navegacao}.\nIndicadores possíveis: {indicadores}.\nCampos possíveis: {campos}.\nColunas sugeridas: {colunas}.\nFiltros possíveis: {filtros}.\nEstados de referência: {estados}.\nAções possíveis: {acoes}.\nComponentes candidatos, somente quando necessários: {componentes}.\nPreserve o estilo e os tokens escolhidos. Adapte a estrutura e o conteúdo às necessidades reais do destino e à visão selecionada. Exemplos e números são fictícios; não implemente serviços, autenticação ou integrações sem requisitos adicionais."
+}

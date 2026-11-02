@@ -1,5 +1,42 @@
 # Portal de Estilos — relatório de entrega e testes
 
+## Atualização 1.2.0 — Prompt adaptável e PWA opcional (1º de novembro de 2026)
+
+**41 grupos automatizados aprovados** nesta atualização: 10 estruturais, 11 de navegador, 7 de contexto/compatibilidade, 8 de prompt/PWA e 5 de prompt/PWA no navegador. As suítes de navegador usaram Chromium em `127.0.0.1:8765`. O pacote contém **108 arquivos de fonte**, excluindo evidências e logs.
+
+- Os três modelos começam pela análise do conteúdo, das funcionalidades e dos fluxos reais. Layout, quantidades, catálogo e sugestões do contexto são opcionais; o prompt orienta usar apenas os elementos necessários e preservar os dados e comportamentos existentes.
+- Genérico mantém a prévia e a direção visual, sem sugestões de domínio. Os textos dos prompts foram intencionalmente atualizados a pedido do usuário; a igualdade com os hashes históricos da versão 1.1.0 deixou de ser um requisito.
+- Checkbox **Preparar como PWA**, desmarcado por padrão, acrescenta exclusivamente o bloco de requisitos PWA ao prompt. A comparação confirmou que os tokens CSS e o DOM da prévia permanecem iguais ao alterná-lo.
+- Preferência booleana validada e preservada em hash, última sessão, perfis, combinações, exportação/importação e JSON. Links e arquivos antigos sem o campo migram para `false`; valores ambíguos são rejeitados. Resetar desmarca e Aleatório mantém a preferência.
+- Checkbox por teclado, cópia, download, recarga, importação em uma sessão nova e uso offline aprovados. Em 390px, não houve transbordamento horizontal global.
+- 39 prompts na suíte específica, 137 combinações de contexto nos três modelos e 14.400 combinações visuais na suíte estrutural verificadas. Os 30 layouts também passaram online e offline no navegador.
+- Perfis, navegação, componentes, atualização do service worker e tratamento de erros passaram na regressão. O teste do diálogo foi corrigido para aguardar o evento `close` e a devolução do foco antes de testar a próxima aba; o comportamento da aplicação não precisou ser alterado.
+- Zero exceções JavaScript nas suítes de navegador desta atualização. A suíte geral também verificou ausência de requisições externas. O worker temporário do teste de atualização foi restaurado para **1.2.0**.
+
+Evidências locais: `test-results/estrutura.json`, `test-results/navegador.json`, `test-results/contexto-estrutura.json`, `test-results/prompt-pwa.json`, `test-results/prompt-pwa-navegador.json`, `test-results/prompt-pwa-painel.png` e `test-results/prompt-pwa-celular.png`.
+
+Escopo: o checkbox acrescenta instruções PWA para o projeto de destino; a instalação e o funcionamento offline desse futuro projeto dependem da implementação feita a partir do prompt. O portal continua com seu próprio suporte offline.
+
+## Atualização 1.1.0 — Contexto do projeto (28 de outubro de 2026)
+
+**38 grupos automatizados aprovados**: 10 estruturais existentes, 11 de navegador existentes, 7 de contexto/compatibilidade e 10 de contexto no navegador. Os testes de navegador desta atualização usaram Chromium em `127.0.0.1:8765`. O pacote atualizado contém **106 arquivos de fonte**, excluindo evidências e logs. A entrega original está documentada mais abaixo como histórico.
+
+- 8 segmentos; 30 aplicações predefinidas e uma personalizada; 137 combinações válidas de aplicação/visão, verificadas nos três tamanhos de prompt.
+- Genérico conserva exatamente os três prompts originais: comparação com SHA-256 calculado antes da alteração. A prévia genérica também foi comparada antes e depois de selecionar outro contexto.
+- Banco de questões: navegação e indicadores específicos, 7 colunas de conteúdo, 5 filtros combináveis, busca, paginação, estado vazio e editor ilustrativo dos quatro tipos de questão.
+- Contexto aplicado aos 30 layouts em prévia de 390px, mantendo os 36 componentes e sem transbordamento global. Catálogo com destaques, gaveta móvel e navegação por teclado verificados.
+- Visões Administração, Operação, Portal do usuário, Análise e relatórios e Apresentação pública com conteúdo e ações específicos. Visões indisponíveis são removidas do seletor e rejeitadas na validação.
+- Links e bibliotecas v1 sem campos novos migram para Genérico. Salvar, exportar, importar, aplicar e recarregar preservam o contexto.
+- Nome e objetivo personalizados são tratados como texto; tentativa de HTML não cria elementos executáveis. Limites de 120/1.000 caracteres e relações inválidas entre segmento/aplicação/visão foram testados.
+- Recarga e mudança de contexto com rede desativada passaram. Zero exceções JavaScript e zero requisições externas nas suítes de navegador.
+- Estilos e tokens preservados: 14.400 combinações visuais verificadas, incluindo ambos os modos e as verificações de contraste existentes.
+
+Evidências locais: `test-results/contexto-estrutura.json`, `test-results/contexto-navegador.json`, `test-results/contexto-banco-desktop.png`, `test-results/contexto-formulario.png`, `test-results/contexto-celular.png` e `test-results/contexto-generico-final.jpg`.
+
+Escopo: o recurso contextualiza a prévia e o prompt. Os dados são fictícios, os exemplos de alguns componentes permanecem compartilhados e o editor de questões não implementa gravação, autenticação ou banco de dados.
+
+## Histórico da entrega original — 1.0.2
+
 Projeto concluído em 7 de outubro de 2026. São **99 arquivos de fonte**, sem build, framework, backend, login, APIs, CDN ou recursos externos em execução. O pacote está preparado para GitHub Pages; a publicação em uma conta/repositório não foi realizada.
 
 ## Resultado geral
